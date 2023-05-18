@@ -30,6 +30,10 @@
 .small-screen-hidden {
   display: none;
 }
+.sometesting
+{
+width:10px;
+}
 nav {
   display: flex;
   position: fixed;
