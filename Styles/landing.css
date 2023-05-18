@@ -94,7 +94,7 @@ nav {
 }
 .navigation li {
   width: 100%;
-  padding: 0.8rem 0;
+  padding: 0.8rem 0.5rem;
 }
 
 .navigation li:first-of-type {
@@ -111,6 +111,12 @@ nav {
 }
 .burger-menu .colored {
   border-bottom: solid 0.1rem #ff3d00;
+}
+.active{
+  background: linear-gradient(#1d1d1d 45% ,#0f0f0f) !important;
+}
+.active a{
+  color:#ff3d00 !important;
 }
 
 .image-container {
