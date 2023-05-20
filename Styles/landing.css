@@ -190,6 +190,9 @@ ion-icon {
 }
 .concerts-second {
   margin-left: 3rem;
+ 
+}
+.concerts span{
   background: transparent;
 }
 .dates {
@@ -418,7 +421,7 @@ a,
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 8rem 4rem 4rem 4rem;
+  padding: 4rem;
 }
 .contact .centered {
   flex-direction: column;
