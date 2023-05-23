@@ -368,7 +368,8 @@ a,
   cursor: pointer;
 }
 .carousel {
-  max-width: 120%;
+  width: 100%;
+  max-width: 1530px;
   padding: 5rem 0 0 0;
   overflow: hidden;
 }

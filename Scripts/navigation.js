@@ -7,6 +7,8 @@ const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
 const datesForwardButton = document.querySelector(".forward");
 const recordsArray = Array.from(document.querySelectorAll(".record"));
+const outerCarousel = document.querySelector(".carousel");
+const innerCarousel = document.querySelector(".inner-carousel");
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
 
@@ -221,6 +223,13 @@ recordsLoadHandler();
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
 menuButton.addEventListener("click", toggleMenuHandler);
+innerCarousel.addEventListener("touchmove", (event) => {
+  console.log(innerCarousel.style.transform = "translateX(45px)");
+  console.log(event.changedTouches[0].pageX);
+}, {passive: true});
+innerCarousel.addEventListener("touchend",() => {
+  console.log(innerCarousel.style.transform = "translateX(0)");
+}, {passive: true});
 mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
