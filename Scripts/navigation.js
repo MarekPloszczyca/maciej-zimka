@@ -94,6 +94,7 @@ let records = [
     "sads"
   ),
 ];
+let touchstart;
 
 const toggleMenuHandler = () => {
   menuButton.classList.toggle("change");
@@ -187,6 +188,20 @@ const recordsMoveHandler = (evt) => {
   recordsLoadHandler();
 };
 
+const recordsSlideHandler = (event) => {
+  let touchend = event.changedTouches[0].screenX;
+  console.log(touchstart, touchend);
+  if (touchstart === touchend) return;
+  touchstart > touchend
+    ? arrayForwardHandler(records)
+    : arrayBackwardHandler(records);
+  recordsLoadHandler();
+};
+
+const recordsMoveAnimation = () => {
+  
+}
+
 const validateEmail = (input) => {
   const correctEmailAdress =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -223,13 +238,17 @@ recordsLoadHandler();
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
 menuButton.addEventListener("click", toggleMenuHandler);
-innerCarousel.addEventListener("touchmove", (event) => {
-  console.log(innerCarousel.style.transform = "translateX(45px)");
-  console.log(event.changedTouches[0].pageX);
-}, {passive: true});
-innerCarousel.addEventListener("touchend",() => {
-  console.log(innerCarousel.style.transform = "translateX(0)");
-}, {passive: true});
+innerCarousel.addEventListener(
+  "touchstart",
+  (event) => {
+    return (touchstart = event.changedTouches[0].screenX);
+  },
+  { passive: true }
+);
+innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {passive: true});
+innerCarousel.addEventListener("touchend", recordsSlideHandler, {
+  passive: true
+});
 mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
