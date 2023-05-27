@@ -58,7 +58,7 @@ let records = [
     "DuoArdente",
     "DUO",
     "ARDENTE",
-    "2020",
+    "1020",
     "sads"
   ),
   new Record(
@@ -66,7 +66,7 @@ let records = [
     "OutOfTheCircle",
     "OUT OF THE",
     "CIRCLE",
-    "2020",
+    "2026",
     "sads"
   ),
   new Record(
@@ -74,7 +74,7 @@ let records = [
     "TraumVogel",
     "TRAUM",
     "VOGEL",
-    "2020",
+    "2023",
     "sads"
   ),
   new Record(
@@ -82,7 +82,7 @@ let records = [
     "Accochameleon",
     "ACCO",
     "CHAMELEON",
-    "2020",
+    "2021",
     "sads"
   ),
   new Record(
@@ -90,12 +90,15 @@ let records = [
     "QuasiUnaFantasia",
     "QUASI UNA",
     "FANTASIA",
-    "2020",
+    "2024",
     "sads"
   ),
 ];
 let touchstart;
 let arrayOfSlide = [];
+const mainImageStyle = recordsArray[2].children[0].style;
+const nextImageStyle = recordsArray[3].children[0].style;
+const previousImageStyle = recordsArray[1].children[0].style;
 
 const toggleMenuHandler = () => {
   menuButton.classList.toggle("change");
@@ -190,8 +193,17 @@ const recordsMoveHandler = (evt) => {
 };
 
 const recordsSlideHandler = (event) => {
+  mainImageStyle.width = "66vw";
+  mainImageStyle.height = "66vw";
+  mainImageStyle.filter = "none";
+  nextImageStyle.width = "34vw";
+  nextImageStyle.height = "34vw";
+  nextImageStyle.filter = "grayscale(100%)";
+  previousImageStyle.width = "34vw";
+  previousImageStyle.height = "34vw";
+  previousImageStyle.filter = "grayscale(100%)";
   arrayOfSlide = [];
-  innerCarousel.style.right = "0px";
+  innerCarousel.style.right = "0";
   let touchend = event.changedTouches[0].screenX;
   if (touchstart === touchend) return;
   touchstart > touchend
@@ -202,9 +214,22 @@ const recordsSlideHandler = (event) => {
 
 const recordsMoveAnimation = (event) => {
   arrayOfSlide.push(event.changedTouches[0].pageX);
-  innerCarousel.style.right = `${
-    arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1]
-  }px`;
+  let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
+  let calculatedNumber = Math.abs(numberOfPageX);calculatedNumber;
+  innerCarousel.style.right = `${numberOfPageX}px`;
+  mainImageStyle.width = `calc(66vw - ${0.7 * calculatedNumber}px)`;
+  mainImageStyle.height = `calc(66vw - ${0.7 * calculatedNumber}px)`;
+  mainImageStyle.filter = `grayscale(${calculatedNumber}%)`;
+  if (numberOfPageX > 0) {
+    nextImageStyle.width = `calc(34vw + ${0.7 * calculatedNumber}px)`;
+    nextImageStyle.height = `calc(34vw + ${0.7 * calculatedNumber}px)`;
+    nextImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+  }
+  if (numberOfPageX < 0) {
+    previousImageStyle.width = `calc(34vw + ${0.7 * calculatedNumber}px)`;
+    previousImageStyle.height = `calc(34vw + ${0.7 * calculatedNumber}px)`;
+    previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+  }
 };
 
 const validateEmail = (input) => {
