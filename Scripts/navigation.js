@@ -95,6 +95,7 @@ let records = [
   ),
 ];
 let touchstart;
+let arrayOfSlide = [];
 
 const toggleMenuHandler = () => {
   menuButton.classList.toggle("change");
@@ -189,8 +190,9 @@ const recordsMoveHandler = (evt) => {
 };
 
 const recordsSlideHandler = (event) => {
+  arrayOfSlide = [];
+  innerCarousel.style.right = "0px";
   let touchend = event.changedTouches[0].screenX;
-  console.log(touchstart, touchend);
   if (touchstart === touchend) return;
   touchstart > touchend
     ? arrayForwardHandler(records)
@@ -198,9 +200,12 @@ const recordsSlideHandler = (event) => {
   recordsLoadHandler();
 };
 
-const recordsMoveAnimation = () => {
-  
-}
+const recordsMoveAnimation = (event) => {
+  arrayOfSlide.push(event.changedTouches[0].pageX);
+  innerCarousel.style.right = `${
+    arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1]
+  }px`;
+};
 
 const validateEmail = (input) => {
   const correctEmailAdress =
@@ -245,9 +250,11 @@ innerCarousel.addEventListener(
   },
   { passive: true }
 );
-innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {passive: true});
+innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {
+  passive: true,
+});
 innerCarousel.addEventListener("touchend", recordsSlideHandler, {
-  passive: true
+  passive: true,
 });
 mailForm.addEventListener("submit", (event) => {
   event.preventDefault();

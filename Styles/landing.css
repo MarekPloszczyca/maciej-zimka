@@ -368,10 +368,14 @@ a,
   cursor: pointer;
 }
 .carousel {
+  position:relative;
   width: 100%;
   max-width: 1530px;
   padding: 5rem 0 0 0;
   overflow: hidden;
+}
+.inner-carousel{
+  position: relative;
 }
 .record {
   cursor: pointer;
