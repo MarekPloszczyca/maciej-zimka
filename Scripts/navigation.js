@@ -223,12 +223,8 @@ const recordsMoveAnimation = (event) => {
   let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
   let calculatedNumber = Math.abs(numberOfPageX);
   innerCarousel.style.right = `${numberOfPageX}px`;
-  mainImageStyle.width = `calc(66vw - ${
-    (window.innerWidth * calculatedNumber) / 326
-  }px)`;
-  mainImageStyle.height = `calc(66vw - ${
-    (window.innerWidth * calculatedNumber) / 326
-  }px)`;
+  mainImageStyle.width = `calc(66vw - ${calculatedNumber * 0.25}vw)`;
+  mainImageStyle.height = `calc(66vw - ${calculatedNumber * 0.25}vw)`;
   mainImageStyle.filter = `grayscale(${
     (window.innerWidth * calculatedNumber) / 326
   }%)`;
@@ -237,38 +233,31 @@ const recordsMoveAnimation = (event) => {
   text[0].textContent = records[2].date;
   text[1].textContent = records[2].publisher;
   if (numberOfPageX > 0) {
-    nextImageStyle.width = `calc(34vw + ${
-      (0.7 * window.innerWidth * calculatedNumber) / 326
-    }px)`;
-    nextImageStyle.height = `calc(34vw + ${
-      (0.7 * window.innerWidth * calculatedNumber) / 326
-    }px)`;
+    nextImageStyle.width = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
+    nextImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
     nextImageStyle.filter = `grayscale(${
       100 - (window.innerWidth * calculatedNumber) / 326
     }%)`;
-
-    if (recordsArray[3].children[0].clientWidth >= window.innerWidth * 0.66) {
-      recordsNameHandler(3);
+    if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.75) {
+      arrayForwardHandler(records);
+      recordsLoadHandler();
+      resetStyles();
+      arrayOfSlide = [];
+      innerCarousel.style.right = "0"; 
     }
   }
   if (numberOfPageX < 0) {
-    previousImageStyle.width = `calc(34vw + ${
-      (0.7 * window.innerWidth * calculatedNumber) / 326
-    }px)`;
-    previousImageStyle.height = `calc(34vw + ${
-      (0.7 * window.innerWidth * calculatedNumber) / 326
-    }px)`;
-    previousImageStyle.filter = `grayscale(${
-      100 - (window.innerWidth * calculatedNumber) / 326
-    }%)`;
-    if (recordsArray[1].children[0].clientWidth >= window.innerWidth * 0.66) {
-      recordsNameHandler(1);
+    previousImageStyle.width = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
+    previousImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
+    previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+    if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.75) {
+      arrayBackwardHandler(records);
+      recordsLoadHandler();
+      resetStyles();
+      arrayOfSlide = [];
+      innerCarousel.style.right = "0";
     }
   }
-  console.log(
-    recordsArray[1].children[0].clientWidth,
-    window.innerWidth * 0.66
-  );
 };
 
 const validateEmail = (input) => {
