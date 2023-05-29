@@ -9,6 +9,9 @@ const datesForwardButton = document.querySelector(".forward");
 const recordsArray = Array.from(document.querySelectorAll(".record"));
 const outerCarousel = document.querySelector(".carousel");
 const innerCarousel = document.querySelector(".inner-carousel");
+const title = document.querySelector("h5");
+const description = document.querySelector(".description");
+const text = description.querySelectorAll("p");
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
 
@@ -153,21 +156,20 @@ const datesMoveHandler = (evt) => {
   datesLoadHandler();
 };
 
+const recordsNameHandler = (index) => {
+  title.children[0].textContent = records[index].firstTitle;
+  title.children[1].textContent = records[index].secondTitle;
+  text[0].textContent = records[index].date;
+  text[1].textContent = records[index].publisher;
+};
+
 const recordsLoadHandler = () => {
   for (let i = 0; i < 5; i++) {
     const img = recordsArray[i].querySelector("img");
     img.src = records[i].imageURL;
     img.alt = records[i].alternative;
-    if (i == 2) {
-      const title = document.querySelector("h5");
-      const description = document.querySelector(".description");
-      const text = description.querySelectorAll("p");
-      title.children[0].textContent = records[i].firstTitle;
-      title.children[1].textContent = records[i].secondTitle;
-      text[0].textContent = records[i].date;
-      text[1].textContent = records[i].publisher;
-    }
   }
+  recordsNameHandler(2);
 };
 
 const recordsMoveHandler = (evt) => {
@@ -192,7 +194,7 @@ const recordsMoveHandler = (evt) => {
   recordsLoadHandler();
 };
 
-const recordsSlideHandler = (event) => {
+const resetStyles = () => {
   mainImageStyle.width = "66vw";
   mainImageStyle.height = "66vw";
   mainImageStyle.filter = "none";
@@ -202,6 +204,10 @@ const recordsSlideHandler = (event) => {
   previousImageStyle.width = "34vw";
   previousImageStyle.height = "34vw";
   previousImageStyle.filter = "grayscale(100%)";
+};
+
+const recordsSlideHandler = (event) => {
+  resetStyles();
   arrayOfSlide = [];
   innerCarousel.style.right = "0";
   let touchend = event.changedTouches[0].screenX;
@@ -215,21 +221,54 @@ const recordsSlideHandler = (event) => {
 const recordsMoveAnimation = (event) => {
   arrayOfSlide.push(event.changedTouches[0].pageX);
   let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
-  let calculatedNumber = Math.abs(numberOfPageX);calculatedNumber;
+  let calculatedNumber = Math.abs(numberOfPageX);
   innerCarousel.style.right = `${numberOfPageX}px`;
-  mainImageStyle.width = `calc(66vw - ${0.7 * calculatedNumber}px)`;
-  mainImageStyle.height = `calc(66vw - ${0.7 * calculatedNumber}px)`;
-  mainImageStyle.filter = `grayscale(${calculatedNumber}%)`;
+  mainImageStyle.width = `calc(66vw - ${
+    (window.innerWidth * calculatedNumber) / 326
+  }px)`;
+  mainImageStyle.height = `calc(66vw - ${
+    (window.innerWidth * calculatedNumber) / 326
+  }px)`;
+  mainImageStyle.filter = `grayscale(${
+    (window.innerWidth * calculatedNumber) / 326
+  }%)`;
+  title.children[0].textContent = records[2].firstTitle;
+  title.children[1].textContent = records[2].secondTitle;
+  text[0].textContent = records[2].date;
+  text[1].textContent = records[2].publisher;
   if (numberOfPageX > 0) {
-    nextImageStyle.width = `calc(34vw + ${0.7 * calculatedNumber}px)`;
-    nextImageStyle.height = `calc(34vw + ${0.7 * calculatedNumber}px)`;
-    nextImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+    nextImageStyle.width = `calc(34vw + ${
+      (0.7 * window.innerWidth * calculatedNumber) / 326
+    }px)`;
+    nextImageStyle.height = `calc(34vw + ${
+      (0.7 * window.innerWidth * calculatedNumber) / 326
+    }px)`;
+    nextImageStyle.filter = `grayscale(${
+      100 - (window.innerWidth * calculatedNumber) / 326
+    }%)`;
+
+    if (recordsArray[3].children[0].clientWidth >= window.innerWidth * 0.66) {
+      recordsNameHandler(3);
+    }
   }
   if (numberOfPageX < 0) {
-    previousImageStyle.width = `calc(34vw + ${0.7 * calculatedNumber}px)`;
-    previousImageStyle.height = `calc(34vw + ${0.7 * calculatedNumber}px)`;
-    previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+    previousImageStyle.width = `calc(34vw + ${
+      (0.7 * window.innerWidth * calculatedNumber) / 326
+    }px)`;
+    previousImageStyle.height = `calc(34vw + ${
+      (0.7 * window.innerWidth * calculatedNumber) / 326
+    }px)`;
+    previousImageStyle.filter = `grayscale(${
+      100 - (window.innerWidth * calculatedNumber) / 326
+    }%)`;
+    if (recordsArray[1].children[0].clientWidth >= window.innerWidth * 0.66) {
+      recordsNameHandler(1);
+    }
   }
+  console.log(
+    recordsArray[1].children[0].clientWidth,
+    window.innerWidth * 0.66
+  );
 };
 
 const validateEmail = (input) => {

@@ -399,10 +399,10 @@ a,
 
 .previous-records img,
 .next-records img {
-  max-width: 14rem;
-  max-height: 14rem;
   height: 34vw;
   width: 34vw;
+  max-width: 66vw;
+  max-height: 66vw;
   padding: 1rem;
   filter: grayscale(100%);
   pointer-events: none;
