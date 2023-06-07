@@ -88,7 +88,6 @@ nav {
 .navigation {
   position: relative;
   width: 100% !important;
-  align-items: start !important;
   flex-direction: column;
   padding-top: 4rem;
 }

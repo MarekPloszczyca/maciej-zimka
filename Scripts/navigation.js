@@ -238,7 +238,7 @@ const recordsMoveAnimation = (event) => {
     nextImageStyle.filter = `grayscale(${
       100 - (window.innerWidth * calculatedNumber) / 326
     }%)`;
-    if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.75) {
+    if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.755) {
       arrayForwardHandler(records);
       recordsLoadHandler();
       resetStyles();
@@ -250,7 +250,7 @@ const recordsMoveAnimation = (event) => {
     previousImageStyle.width = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
     previousImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
     previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
-    if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.75) {
+    if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.755) {
       arrayBackwardHandler(records);
       recordsLoadHandler();
       resetStyles();
