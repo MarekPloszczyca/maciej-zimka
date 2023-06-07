@@ -1,11 +1,8 @@
+import { menuButton, toggleMenuHandler} from "./navigation.js";
+import * as concerts from "./concerts-menu.js";
 emailjs.init("5GZD6bKI9widLn-mj");
 
-const menuButton = document.querySelector(".menu-icon");
-const burgerMenu = document.querySelector(".hidden");
-const content = document.querySelector(".container");
-const visibleConcerts = document.querySelectorAll(".single-concert");
-const datesBackButton = document.querySelector(".back");
-const datesForwardButton = document.querySelector(".forward");
+
 const recordsArray = Array.from(document.querySelectorAll(".record"));
 const outerCarousel = document.querySelector(".carousel");
 const innerCarousel = document.querySelector(".inner-carousel");
@@ -15,14 +12,7 @@ const text = description.querySelectorAll("p");
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
 
-class Concert {
-  constructor(date, title, band, place) {
-    this.date = date;
-    this.title = title;
-    this.band = band;
-    this.place = place;
-  }
-}
+
 
 class Record {
   constructor(imageURL, alternative, firstTitle, secondTitle, date, publisher) {
@@ -34,26 +24,6 @@ class Record {
     this.publisher = publisher;
   }
 }
-
-let concerts = [
-  new Concert("2024.02.01", "Concert for a poems", "Duo Ardente", "Cracow"),
-  new Concert("1992.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("2023.04.25", "SDSAD", "sAd", "myślenice"),
-  new Concert("2024.11.20", "Concert v3", "SOAD", "Berlin"),
-  new Concert("2027.12.02", "XXXX", "Duo", "Somewhere"),
-  new Concert("2023.01.26", "SDSAD", "sAd", "myslenice"),
-  new Concert("2025.12.26", "SDSssdsdAD", "svbgh", "fdge"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-]
-  .filter((single) => {
-    return (
-      new Date() < new Date(single.date) ||
-      new Date().toDateString() === new Date(single.date).toDateString()
-    );
-  })
-  .sort((a, b) => {
-    return new Date(a.date).getTime() - new Date(b.date).getTime();
-  });
 
 let records = [
   new Record(
@@ -103,58 +73,7 @@ const mainImageStyle = recordsArray[2].children[0].style;
 const nextImageStyle = recordsArray[3].children[0].style;
 const previousImageStyle = recordsArray[1].children[0].style;
 
-const toggleMenuHandler = () => {
-  menuButton.classList.toggle("change");
-  content.classList.toggle("hidden");
-  burgerMenu.classList.toggle("hidden");
-};
 
-const datesLoadHandler = () => {
-  for (let i = 0; i < 3; i++) {
-    visibleConcerts[i].children[0].textContent = concerts[i].date;
-    visibleConcerts[i].children[1].textContent = concerts[i].title;
-    visibleConcerts[i].children[2].textContent = concerts[i].band;
-    visibleConcerts[i].children[3].textContent = `- ${concerts[
-      i
-    ].place.toUpperCase()} -`;
-  }
-};
-
-const arrayBackwardHandler = (array) => {
-  let element = array.pop();
-  array.unshift(element);
-};
-const arrayForwardHandler = (array) => {
-  let element = array.shift();
-  array.push(element);
-};
-
-const dateSwipeAnimation = (direction) => {
-  visibleConcerts.forEach((single) => {
-    single.classList.add("swipe");
-    single.style.setProperty("--direction", direction);
-    setTimeout(() => {
-      single.classList.remove("swipe");
-    }, 1000);
-  });
-};
-
-const datesMoveHandler = (evt) => {
-  datesForwardButton.removeEventListener("click", datesMoveHandler);
-  datesBackButton.removeEventListener("click", datesMoveHandler);
-  if (evt.target.className.includes("back")) {
-    arrayBackwardHandler(concerts);
-    dateSwipeAnimation("-40rem");
-  } else {
-    arrayForwardHandler(concerts);
-    dateSwipeAnimation("40rem");
-  }
-  setTimeout(() => {
-    datesForwardButton.addEventListener("click", datesMoveHandler);
-    datesBackButton.addEventListener("click", datesMoveHandler);
-  }, 1000);
-  datesLoadHandler();
-};
 
 const recordsNameHandler = (index) => {
   title.children[0].textContent = records[index].firstTitle;
@@ -175,20 +94,20 @@ const recordsLoadHandler = () => {
 const recordsMoveHandler = (evt) => {
   switch (recordsArray.indexOf(evt.target)) {
     case 0:
-      arrayBackwardHandler(records);
-      arrayBackwardHandler(records);
+      concerts.arrayBackwardHandler(records);
+      concerts.arrayBackwardHandler(records);
       break;
     case 1:
-      arrayBackwardHandler(records);
+      concerts.arrayBackwardHandler(records);
       break;
     case 2:
       return;
     case 3:
-      arrayForwardHandler(records);
+      concerts.arrayForwardHandler(records);
       break;
     case 4:
-      arrayForwardHandler(records);
-      arrayForwardHandler(records);
+      concerts.arrayForwardHandler(records);
+      concerts.arrayForwardHandler(records);
       break;
   }
   recordsLoadHandler();
@@ -213,8 +132,8 @@ const recordsSlideHandler = (event) => {
   let touchend = event.changedTouches[0].screenX;
   if (touchstart === touchend) return;
   touchstart > touchend
-    ? arrayForwardHandler(records)
-    : arrayBackwardHandler(records);
+    ? concerts.arrayForwardHandler(records)
+    : concerts.arrayBackwardHandler(records);
   recordsLoadHandler();
 };
 
@@ -239,7 +158,7 @@ const recordsMoveAnimation = (event) => {
       100 - (window.innerWidth * calculatedNumber) / 326
     }%)`;
     if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.755) {
-      arrayForwardHandler(records);
+      concerts.arrayForwardHandler(records);
       recordsLoadHandler();
       resetStyles();
       arrayOfSlide = [];
@@ -251,7 +170,7 @@ const recordsMoveAnimation = (event) => {
     previousImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
     previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
     if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.755) {
-      arrayBackwardHandler(records);
+      concerts.arrayBackwardHandler(records);
       recordsLoadHandler();
       resetStyles();
       arrayOfSlide = [];
@@ -290,12 +209,12 @@ const sendMail = () => {
 recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
-datesLoadHandler();
 recordsLoadHandler();
+concerts.datesLoadHandler();
 
-datesBackButton.addEventListener("click", datesMoveHandler);
-datesForwardButton.addEventListener("click", datesMoveHandler);
 menuButton.addEventListener("click", toggleMenuHandler);
+concerts.datesBackButton.addEventListener("click", concerts.datesMoveHandler);
+concerts.datesForwardButton.addEventListener("click", concerts.datesMoveHandler);
 innerCarousel.addEventListener(
   "touchstart",
   (event) => {
