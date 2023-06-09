@@ -1,10 +1,15 @@
 import { menuButton, toggleMenuHandler} from "./navigation.js";
-import * as concerts from "./concerts-menu.js";
+import {
+  datesBackButton,
+  datesForwardButton,
+  arrayBackwardHandler,
+  arrayForwardHandler,
+  datesMoveHandler
+} from "./concerts-menu.js";
 emailjs.init("5GZD6bKI9widLn-mj");
 
 
 const recordsArray = Array.from(document.querySelectorAll(".record"));
-const outerCarousel = document.querySelector(".carousel");
 const innerCarousel = document.querySelector(".inner-carousel");
 const title = document.querySelector("h5");
 const description = document.querySelector(".description");
@@ -94,20 +99,20 @@ const recordsLoadHandler = () => {
 const recordsMoveHandler = (evt) => {
   switch (recordsArray.indexOf(evt.target)) {
     case 0:
-      concerts.arrayBackwardHandler(records);
-      concerts.arrayBackwardHandler(records);
+      arrayBackwardHandler(records);
+      arrayBackwardHandler(records);
       break;
     case 1:
-      concerts.arrayBackwardHandler(records);
+      arrayBackwardHandler(records);
       break;
     case 2:
       return;
     case 3:
-      concerts.arrayForwardHandler(records);
+      arrayForwardHandler(records);
       break;
     case 4:
-      concerts.arrayForwardHandler(records);
-      concerts.arrayForwardHandler(records);
+      arrayForwardHandler(records);
+      arrayForwardHandler(records);
       break;
   }
   recordsLoadHandler();
@@ -132,8 +137,8 @@ const recordsSlideHandler = (event) => {
   let touchend = event.changedTouches[0].screenX;
   if (touchstart === touchend) return;
   touchstart > touchend
-    ? concerts.arrayForwardHandler(records)
-    : concerts.arrayBackwardHandler(records);
+    ? arrayForwardHandler(records)
+    : arrayBackwardHandler(records);
   recordsLoadHandler();
 };
 
@@ -158,7 +163,7 @@ const recordsMoveAnimation = (event) => {
       100 - (window.innerWidth * calculatedNumber) / 326
     }%)`;
     if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.755) {
-      concerts.arrayForwardHandler(records);
+      arrayForwardHandler(records);
       recordsLoadHandler();
       resetStyles();
       arrayOfSlide = [];
@@ -170,7 +175,7 @@ const recordsMoveAnimation = (event) => {
     previousImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
     previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
     if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.755) {
-      concerts.arrayBackwardHandler(records);
+      arrayBackwardHandler(records);
       recordsLoadHandler();
       resetStyles();
       arrayOfSlide = [];
@@ -210,11 +215,11 @@ recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
 recordsLoadHandler();
-concerts.datesLoadHandler();
+//datesLoadHandler();
 
 menuButton.addEventListener("click", toggleMenuHandler);
-concerts.datesBackButton.addEventListener("click", concerts.datesMoveHandler);
-concerts.datesForwardButton.addEventListener("click", concerts.datesMoveHandler);
+datesBackButton.addEventListener("click", datesMoveHandler);
+datesForwardButton.addEventListener("click", datesMoveHandler);
 innerCarousel.addEventListener(
   "touchstart",
   (event) => {

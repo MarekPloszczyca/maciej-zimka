@@ -206,7 +206,7 @@ ion-icon {
 .dates ion-icon {
   position: relative;
   font-size: 1rem;
-  z-index: 100;
+  z-index: 90;
 }
 .back {
   right: 0.3rem;
@@ -230,6 +230,7 @@ ion-icon {
   gap: 1rem;
   padding: 2rem 1rem;
   width: 12rem;
+  text-align: center;
   transition: background-color 0.3s ease-out;
   background: transparent;
   z-index: 6;
@@ -712,21 +713,21 @@ h1 .second-word {
 .schedule :nth-child(1) {
   display: flex;
   justify-content: space-between;
-}
-.schedule span,
-.schedule p {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-}
-.schedule span {
-  font-weight: normal;
+  width:100%;
 }
 
 .schedule p {
+  display: flex;
+  align-items: start;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
   line-height: 2rem;
   padding: 2rem 0 2rem 0;
-  display: flex;
-  align-items: center;
+ 
+}
+.address{
+display: flex;
+flex-direction: column;
 }
 .underscored {
   border-bottom: solid 0.1rem #ffffff;
