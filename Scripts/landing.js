@@ -215,7 +215,6 @@ recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
 recordsLoadHandler();
-//datesLoadHandler();
 
 menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);

@@ -8,5 +8,4 @@ const toggleMenuHandler = () => {
     content.classList.toggle("hidden");
     burgerMenu.classList.toggle("hidden");
   };
-
   menuButton.addEventListener("click", toggleMenuHandler);

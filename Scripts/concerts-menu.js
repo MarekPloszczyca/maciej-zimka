@@ -1,5 +1,7 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 export {
+  allConcerts,
+  concerts,
   datesBackButton,
   datesForwardButton,
   datesLoadHandler,
@@ -24,7 +26,8 @@ class Concert {
     this.artists = artists;
   }
 }
-let concerts = [
+
+let allConcerts = [
   new Concert(
     "2023.06.19",
     "Concert for a poems",
@@ -42,7 +45,9 @@ let concerts = [
   new Concert("2023.01.26", "SDSAD", "sAd", "myslenice"),
   new Concert("2025.12.26", "SDSssdsdAD", "svbgh", "fdge"),
   new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-]
+];
+
+let concerts = allConcerts
   .filter((single) => {
     return (
       new Date() < new Date(single.date) ||
@@ -62,31 +67,6 @@ const datesLoadHandler = () => {
       i
     ].city.toUpperCase()} -`;
   }
-};
-
-const closestConcertHandler = () => {
-  const closest = concerts[0];
-  let day = document.querySelector(".schedule .tablet-hidden");
-  let moreInfo = document.querySelectorAll(".schedule p");
-  let addressInfo = document.querySelectorAll(".place");
-  const date = new Date(concerts[0].date).getDay();
-  const dayOfWeek = {
-    1: "Poniedziałek",
-    2: "Wtorek",
-    3: "Środa",
-    4: "Czwartek",
-    5: "Piątek",
-    6: "Sobota",
-    7: "Niedziela",
-  };
-  moreInfo[0].textContent = closest.date;
-  day.textContent = dayOfWeek[date].toUpperCase();
-  moreInfo[3].textContent = closest.title;
-  addressInfo[0].textContent = closest.city.toUpperCase();
-  addressInfo[1].textContent = closest.place.toUpperCase();
-  addressInfo[2].textContent = closest.street.toUpperCase();
-  moreInfo[5].textContent = "GODZ. " + `${closest.time}`;
-  moreInfo[6].textContent = closest.artists;
 };
 
 const arrayBackwardHandler = (array) => {
@@ -125,7 +105,6 @@ const datesMoveHandler = (evt) => {
   datesLoadHandler();
 };
 
-closestConcertHandler();
 datesLoadHandler();
 menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);
