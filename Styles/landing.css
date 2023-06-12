@@ -740,10 +740,7 @@ flex-direction: column;
   font-weight: bold;
   margin-bottom: 3.5rem;
 }
-.date-buttons :nth-child(3) {
-  color: #0f0f0f !important;
-  background-color: #ff3d00;
-}
+
 .archive {
   font-family: "Open Sans", sans-serif;
   padding: 4rem 2rem;
