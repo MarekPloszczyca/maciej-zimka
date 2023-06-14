@@ -740,11 +740,24 @@ flex-direction: column;
   font-weight: bold;
   margin-bottom: 3.5rem;
 }
+.main-year{
+  color:#0f0f0f !important;
+  background-color: #ff3d00;
+}
+.main-year:hover{
+  color:#ffffff !important;
+}
 
 .archive {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: auto;
   font-family: "Open Sans", sans-serif;
   padding: 4rem 2rem;
   line-height: 1.5rem;
+}
+.archive-grid{
+width:80vw;
 }
 .archive .first-word {
   flex-direction: column;
@@ -1285,6 +1298,9 @@ a:visited {
   }
   .archive .grid-2 {
     border-top: solid 0.1rem #ffffff;
+  }
+  .archive-grid{
+    width:40vw;
   }
   .text-image-container {
     display: flex;

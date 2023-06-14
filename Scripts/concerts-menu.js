@@ -42,9 +42,18 @@ let allConcerts = [
   new Concert("2023.04.25", "SDSAD", "sAd", "myślenice"),
   new Concert("2024.11.12", "Concert v3", "SOAD", "Berlin"),
   new Concert("2027.12.02", "XXXX", "Duo", "Somewhere"),
-  new Concert("2023.01.26", "SDSAD", "sAd", "myslenice"),
+  new Concert("2023.01.26", "SDSAD ", "sAd", "myslenice"),
   new Concert("2025.12.26", "SDSssdsdAD", "svbgh", "fdge"),
   new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert("1975.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
+  new Concert("1980.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
+  new Concert("2000.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
+  new Concert("1992.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
+  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert("2033.11.26", "asdasd", "sdffd", "ghhge"),
 ];
 
 let concerts = allConcerts
