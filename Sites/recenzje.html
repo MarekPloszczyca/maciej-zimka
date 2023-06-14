@@ -77,14 +77,8 @@
         <span class="second-word white">JE</span>
       </h1>
     </div>
-    <div class="centered circles">
-      <ion-icon name="chevron-back-outline" class="white desktop-only"></ion-icon>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <ion-icon name="chevron-forward-outline" class="white desktop-only"></ion-icon>
-    </div>
-    <div class="review white">
+    
+    <div class="centered"><div class="review white underscored">
       <h5 class="first-word colored">PIZZICATO</h5>
       <p>
         Out of the Circle; Maciej Zimka: Sonata for violin and accordion<br />
@@ -95,7 +89,7 @@
           Mączyński (gtr); Piotr Lato (cl) OPUS SERIES 65/2021 (48:22)</span
         >
       </p>
-      <p>
+      <div class="hidden"><p>
         To leave the circle, as the PR text of this CD says, means « to step out
         of the circle - to cross a barrier, to break a convention, to overcome a
         pattern. » With the CD Out of Circle, Maciej Zimka successfully, it must
@@ -128,20 +122,22 @@
         <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon
         ><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon
         ><ion-icon name="star"></ion-icon>
-      </div>
-    </div>
-    <div class="centered white next-review desktop-hidden">
-      <ion-icon name="chevron-forward-circle-outline"></ion-icon>
-      <p>NASTĘPNA RECENZJA</p>
-    </div>
+      </div></div>
+    </div></div>
     <footer class="centered">
       <div class="footer-icons">
-        <ion-icon name="logo-facebook" class="colored footer-icon"></ion-icon
-        ><i class="fa fa-spotify colored footer-icon"></i
-        ><ion-icon
-          name="logo-youtube"
-          class="footer-icon colored youtube"
-        ></ion-icon>
+        <span title="Facebook"
+          ><ion-icon
+            name="logo-facebook"
+            class="colored footer-icon"
+          ></ion-icon></span
+        ><i class="fa fa-spotify colored footer-icon" title="Spotify"></i>
+        <span class="logo-youtube" title="YouTube">
+          <ion-icon
+            name="logo-youtube"
+            class="footer-icon colored youtube"
+          ></ion-icon>
+        </span>
       </div>
       <h6>
         <span class="first-word white">MACIEJ</span
@@ -149,9 +145,13 @@
       </h6>
       <p class="white">maciejzimka@gmail.com</p>
       <div class="button-container">
-        <button class="up-button">
-          <ion-icon name="chevron-up-circle-outline" class="white"></ion-icon>
-        </button>
+        <a href="#top"
+          ><button class="up-button">
+            <ion-icon
+              name="chevron-up-circle-outline"
+              class="white"
+            ></ion-icon></button
+        ></a>
       </div>
     </footer>
   </div>

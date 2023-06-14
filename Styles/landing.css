@@ -904,15 +904,8 @@ ul p {
   border-top: solid 0.1rem #ffffff;
 }
 /*made for recenzje.html*/
-.circle {
-  width: 1.7rem;
-  height: 1.7rem;
-  border: solid 0.1rem #ff3d00;
-  border-radius: 50%;
-  margin: 0 1rem 5rem 1rem;
-}
-.circle:first-of-type {
-  background-color: #ff3d00;
+.review{
+  width:70%;
 }
 .review p {
   font-family: "Open-sans", sans-serif;
@@ -1329,17 +1322,6 @@ a:visited {
   .review {
     padding-left: 14rem;
     padding-right: 14rem;
-  }
-  .circles ion-icon {
-    position: relative;
-    bottom: 2.4rem;
-    font-size: 2rem;
-  }
-  .circles :nth-child(1) {
-    right: 8rem;
-  }
-  .circles :nth-child(5) {
-    left: 8rem;
   }
   .details {
     display: flex;
