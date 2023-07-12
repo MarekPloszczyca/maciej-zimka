@@ -6,6 +6,9 @@ import {
   arrayForwardHandler,
   datesMoveHandler
 } from "./concerts-menu.js";
+import { sendMail, validateEmail} from "./kontakt.js";
+
+
 emailjs.init("5GZD6bKI9widLn-mj");
 
 
@@ -184,32 +187,6 @@ const recordsMoveAnimation = (event) => {
   }
 };
 
-const validateEmail = (input) => {
-  const correctEmailAdress =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  return input.match(correctEmailAdress) ? true : false;
-};
-
-const sendMail = () => {
-  const mailData = {
-    email: document.querySelector(`input[type="email"]`).value,
-    message: document.querySelector("textarea").value,
-  };
-  const serviceID = "service_oyz906t";
-  const templateID = "template_x2slm9n";
-  //if (validateEmail(mailData.email) && mailData.message.trim() !== "") {
-  //emailjs
-  //.send(serviceID, templateID, mailData)
-  //.then(() => {
-  document.querySelector(`input[type="email"]`).value = "";
-  document.querySelector("textarea").value = "";
-  sendMailButton.textContent = "";
-  sendMailButton.classList.add("sent-out");
-  //})
-  //.catch(() => alert("Something went wrong, try again later"));
-};
-//else return ;
-//};
 
 recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);

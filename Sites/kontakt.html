@@ -11,11 +11,15 @@
       crossorigin="anonymous"
       defer
     ></script>
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      defer
+    ></script>
+    <script type="module" src="../Scripts/kontakt.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-      defer
     ></script>
   </head>
   <body>
@@ -40,9 +44,9 @@
         <li class="dropdown">
           <a href="zespoly.html">ZESPOŁY KAMERALNE</a>
           <ul class="menu-bands">
-            <li>DUO ARDENTE</li>
-            <li>DUO ZIMKA&OCHWAT</li>
-            <li>QUASI UNA FANTASIA</li>
+            <a href="zespoly-2.html"><li>DUO ARDENTE</li></a>
+            <a href="zespoly.html"><li>DUO ZIMKA&OCHWAT</li></a>
+            <a href="zespoly-3.html"><li>QUASI UNA FANTASIA</li></a>
           </ul>
         </li>
         <li><a href="do-pobrania.html">DO POBRANIA</a></li>
@@ -58,7 +62,7 @@
         </ul>
       </div>
       <ul class="navigation">
-        <li class="underscored active"><a href="bio.html">BIO</a></li>
+        <li class="underscored"><a href="bio.html">BIO</a></li>
         <li class="underscored"><a href="koncerty.html">KONCERTY</a></li>
         <li class="underscored"><a href="recenzje.html">RECENZJE</a></li>
         <li class="underscored"><a href="dyskografia.html">DYSKOGRAFIA</a></li>
@@ -67,23 +71,28 @@
           <a href="zespoly.html">ZESPOŁY KAMERALNE</a>
         </li>
         <li class="underscored"><a href="do-pobrania.html">DO POBRANIA</a></li>
-        <li class="underscored"><a href="kontakt.html">KONTAKT</a></li>
+        <li class="underscored active"><a href="kontakt.html">KONTAKT</a></li>
       </ul>
     </div>
     <div class="container">
-    <div class="desktop-contact"><div class="contact-image desktop-only"></div><div class="contact">
-        <h4>
-          <span class="first-word white">SKONTAKTUJ</span
-          ><span class="second-word white">SIĘ</span>
-        </h4>
-        <input type="email" placeholder="E-MAIL" />
-        <textarea
-          rows="4"
-          name="message"
-          placeholder="TWOJA WIADOMOŚĆ"
-        ></textarea>
-        <button class="white" type="submit" value="submit" >WYŚLIJ</button>
-      </div></div>
+      <div class="desktop-contact">
+        <div class="contact-image desktop-only"></div>
+        <div class="contact centered">
+          <h4>
+            <span class="first-word white">SKONTAKTUJ</span
+            ><span class="second-word white">SIĘ</span>
+          </h4>
+          <form class="centered">
+            <input type="email" placeholder="E-MAIL" />
+            <textarea
+              rows="4"
+              name="message"
+              placeholder="TWOJA WIADOMOŚĆ"
+            ></textarea>
+            <button class="white" type="submit" value="submit">WYŚLIJ</button>
+          </form>
+        </div>
+      </div>
       <footer class="centered">
         <div class="footer-icons">
           <span title="Facebook"
