@@ -458,6 +458,7 @@ textarea::placeholder {
   font-family: "Open Sans", sans-serif;
 }
 input {
+  display: none;
   margin: 4rem 1rem 4rem 1rem;
   max-width: 28rem;
   width: 75vw;
@@ -470,6 +471,8 @@ input:hover {
   border-color: #ff3d00;
 }
 textarea {
+  opacity: 0;
+  pointer-events: none;
   width: 85vw;
   max-width: 42.125rem;
   font-size: 19px;
@@ -524,6 +527,7 @@ button {
   margin: 3.5rem 1.5rem 1.5rem 1.5rem;
 }
 form button {
+  display: none;
   height: 2.4rem;
   width: 8.9rem;
 }
@@ -947,20 +951,22 @@ ul p {
 }
 /*made for zespoly-komercyjne.html*/
 
-.band-image, .band-image-2, .band-image-3 {
+.band-image,
+.band-image-2,
+.band-image-3 {
   background-size: cover;
   height: 40rem;
   background-position: 50% 40%;
   filter: grayscale(100%);
 }
-.band-image{
+.band-image {
   background-image: url(../Images/Accochameleon.jpg);
 }
-.band-image-2{
-background-image: url(../Images/duoardente-band.jpg);
+.band-image-2 {
+  background-image: url(../Images/duoardente-band.jpg);
 }
-.band-image-3{
-background-image: url(../Images/Quasi-una-fantasia-band.png);
+.band-image-3 {
+  background-image: url(../Images/Quasi-una-fantasia-band.png);
 }
 .band-names .first-word {
   font-size: 2.3rem;
@@ -978,7 +984,6 @@ main .underscored:last-of-type {
 }
 
 .other-bands .centered:hover span {
-
   color: #ff3d00 !important;
   transition: 0.3s;
 }
@@ -1425,7 +1430,9 @@ a:visited {
   .composition {
     font-size: 1.6rem;
   }
-  .band-image, .band-image-2, .band-image-3 {
+  .band-image,
+  .band-image-2,
+  .band-image-3 {
     margin-bottom: 8rem;
     top: 0;
     position: sticky;
@@ -1438,17 +1445,58 @@ a:visited {
   }
   .desktop-contact {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
   .contact-image {
+    position: relative;
     background-image: url(../Images/Contact-image.jpg);
     height: 100vh;
     width: 100vw;
-    max-width: 80rem;
+    max-width: 60%;
     background-size: cover;
     background-position: 20% 30%;
+  }
+  .mail-sent-out {
+    position: relative;
+    display: flex;
+    font-family: "Oswald", sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    margin-top: 4rem;
+  }
+  .mail-sent-out::before {
+    position: absolute;
+    content: "";
+    width: 14rem;
+    height: 14rem;
+    right: -0.3rem;
+    top: -5.2rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 50%;
+  }
+  .mail-sent-out::after {
+    position: absolute;
+    content: "";
+    width: 9rem;
+    height: 9rem;
+    right: -5.4rem;
+    top: -3.2rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 50%;
+  }
+  .mail-sent-out .centered::after {
+    position: absolute;
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    left:8.5rem;
+    bottom:5rem;
+    border-radius: 50%;
+    background-color: #ff3d00;
   }
 }
 @media (min-width: 1400px) {
