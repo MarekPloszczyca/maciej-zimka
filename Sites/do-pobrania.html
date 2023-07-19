@@ -17,6 +17,10 @@
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
       defer
     ></script>
+    <script
+      type="module"
+      src="../Scripts/navigation.js" 
+    ></script>
   </head>
   <body>
     <nav>
@@ -58,72 +62,74 @@
         </ul>
       </div>
       <ul class="navigation">
-        <li class="underscored active"><a href="bio.html">BIO</a></li>
+        <li class="underscored"><a href="bio.html">BIO</a></li>
         <li class="underscored"><a href="koncerty.html">KONCERTY</a></li>
         <li class="underscored"><a href="recenzje.html">RECENZJE</a></li>
         <li class="underscored"><a href="dyskografia.html">DYSKOGRAFIA</a></li>
         <li class="underscored"><a href="kompozycja.html">KOMPOZYCJE</a></li>
-        <li class="underscored">
-          <a href="zespoly.html">ZESPOŁY KAMERALNE</a>
+        <li class="underscored burger-dropdown">
+          ZESPOŁY KAMERALNE <ion-icon name="caret-down-outline"></ion-icon>
+          <ul class="hidden">
+            <li class="underscored">
+              <a href="zespoly-2.html">DUO ARDENTE</a>
+            </li>
+            <li class="underscored">
+              <a href="zespoly.html">DUO ZIMKA&OCHWAT</a>
+            </li>
+            <li class="underscored">
+              <a href="zespoly-3.html">QUASI UNA FANTASIA</a>
+            </li>
+          </ul>
         </li>
-        <li class="underscored"><a href="do-pobrania.html">DO POBRANIA</a></li>
+        <li class="underscored active"><a href="do-pobrania.html">DO POBRANIA</a></li>
         <li class="underscored"><a href="kontakt.html">KONTAKT</a></li>
       </ul>
     </div>
     <div class="container">
-    <div class="title one-word-title centered download-title">
-      <h1>
-        <span class="first-word white">POBIERZ</span>
-        <span class="second-word white">PLIK</span>
-      </h1>
-      <div class="arrow">
-        <ion-icon name="arrow-down-outline" class="colored"></ion-icon>
+      <div class="title one-word-title centered download-title">
+        <h1>
+          <span class="first-word white">POBIERZ</span>
+          <span class="second-word white">PLIK</span>
+        </h1>
+        <div class="arrow">
+          <ion-icon name="arrow-down-outline" class="colored"></ion-icon>
+        </div>
       </div>
+      <div class="downloads white">
+        <div class="file underscored">
+          <p>PRESS PACK</p>
+          <ion-icon name="arrow-down-outline"></ion-icon>
+        </div>
+        <div class="file underscored">
+          <p>PRESS PACK EN</p>
+          <ion-icon name="arrow-down-outline"></ion-icon>
+        </div>
+        <div class="file underscored">
+          <p>PRESS PACK DE</p>
+          <ion-icon name="arrow-down-outline"></ion-icon>
+        </div>
+      </div>
+      <footer class="centered no-up-arrow">
+        <div class="footer-icons">
+          <span title="Facebook"
+            ><ion-icon
+              name="logo-facebook"
+              class="colored footer-icon"
+            ></ion-icon></span
+          ><i class="fa fa-spotify colored footer-icon" title="Spotify"></i>
+          <span class="logo-youtube" title="YouTube">
+            <ion-icon
+              name="logo-youtube"
+              class="footer-icon colored youtube"
+            ></ion-icon>
+          </span>
+        </div>
+        <h6>
+          <span class="first-word white">MACIEJ</span
+          ><span class="second-word white">ZIMKA</span>
+        </h6>
+        <p class="white">maciejzimka@gmail.com</p>
+      </footer>
     </div>
-    <div class="downloads white">
-      <div class="file underscored">
-        <p>PRESS PACK</p>
-        <ion-icon name="arrow-down-outline"></ion-icon>
-      </div>
-      <div class="file underscored">
-        <p>PRESS PACK EN</p>
-        <ion-icon name="arrow-down-outline"></ion-icon>
-      </div>
-      <div class="file underscored">
-        <p>PRESS PACK DE</p>
-        <ion-icon name="arrow-down-outline"></ion-icon>
-      </div>
-    </div>
-    <footer class="centered">
-      <div class="footer-icons">
-        <span title="Facebook"
-          ><ion-icon
-            name="logo-facebook"
-            class="colored footer-icon"
-          ></ion-icon></span
-        ><i class="fa fa-spotify colored footer-icon" title="Spotify"></i>
-        <span class="logo-youtube" title="YouTube">
-          <ion-icon
-            name="logo-youtube"
-            class="footer-icon colored youtube"
-          ></ion-icon>
-        </span>
-      </div>
-      <h6>
-        <span class="first-word white">MACIEJ</span
-        ><span class="second-word white">ZIMKA</span>
-      </h6>
-      <p class="white">maciejzimka@gmail.com</p>
-    </footer>
-    <div class="button-container">
-      <a href="#top"
-        ><button class="up-button">
-          <ion-icon
-            name="chevron-up-circle-outline"
-            class="white"
-          ></ion-icon></button
-      ></a>
-    </div>
-  </div>
   </body>
 </html>
