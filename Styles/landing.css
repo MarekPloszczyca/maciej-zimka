@@ -18,16 +18,10 @@
 .colored {
   color: #ff3d00;
 }
-.hidden {
+.hidden, .tablet-hidden {
   display: none !important;
 }
-.tablet-hidden {
-  display: none !important;
-}
-.desktop-only {
-  display: none;
-}
-.small-screen-hidden {
+.desktop-only, .small-screen-hidden {
   display: none;
 }
 nav {
@@ -109,34 +103,34 @@ nav {
   font-size: 1.5rem;
 }
 
-.burger-dropdown ul{
+.burger-dropdown ul {
   display: flex;
   flex-direction: column;
   align-items: start !important;
   width: 100% !important;
-  padding-top:1rem;
+  padding-top: 1rem;
 }
-.burger-dropdown:hover{
+.burger-dropdown:hover {
   cursor: pointer;
 }
-.burger-dropdown ion-icon{
+.burger-dropdown ion-icon {
   transition: 0.3s;
 }
-.burger-dropdown li{
+.burger-dropdown li {
   font-size: 1rem;
-  width:100%;
+  width: 100%;
 }
-.burger-dropdown li{
-  padding-left:0;
+.burger-dropdown li {
+  padding-left: 0;
 }
-.burger-dropdown li:before{
-content: "\2022";
-color:#ff3d00;
-padding-right:1rem;
+.burger-dropdown li:before {
+  content: "\2022";
+  color: #ff3d00;
+  padding-right: 1rem;
 }
-.burger-dropdown ul li:last-of-type{
-  padding-bottom:0 !important;
-  border:none;
+.burger-dropdown ul li:last-of-type {
+  padding-bottom: 0 !important;
+  border: none;
 }
 .burger-menu .colored {
   border-bottom: solid 0.1rem #ff3d00;
@@ -144,7 +138,7 @@ padding-right:1rem;
 .active {
   background: linear-gradient(#1d1d1d 45%, #0f0f0f) !important;
 }
-.active a{
+.active a {
   color: #ff3d00 !important;
 }
 
@@ -398,8 +392,7 @@ a,
 .carousel {
   position: relative;
   width: 100%;
-  height: 80vw;
-  max-width: 1530px;
+  height: calc(145px + 20vw);
   padding: 5rem 0 0 0;
   overflow: hidden;
 }
@@ -409,44 +402,39 @@ a,
 .record {
   cursor: pointer;
 }
-.main-record {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .main-record img {
-  width: 66vw;
-  height: 66vw;
-  min-width: 34vw;
-  min-height: 34vw;
+  width: calc(129px + 20vw);
+  height: calc(129px + 20vw);
   max-width: 26.5rem;
   max-height: 26.5rem;
-  padding: 1rem;
-  pointer-events: none;
+  padding:1rem;
+ pointer-events: none;
 }
 
 .previous-records img,
 .next-records img {
-  height: 34vw;
-  width: 34vw;
-  max-width: 66vw;
-  max-height: 66vw;
-  padding: 1rem;
+  width: calc(39px + 20vw);
+  height: calc(39px + 20vw);
+  max-width: 13.5rem;
+  max-height: 13.5rem;
+  padding:1rem;
   filter: grayscale(100%);
   pointer-events: none;
 }
 .description {
   text-align: start;
   font-family: "Open Sans", sans-serif;
-  width: 66vw;
+  width: calc(129px + 20vw);
   max-width: 26.5rem;
   padding-bottom: 5rem;
+  padding-top:1rem;
 }
 .description .first-word {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 .description .second-word {
-  font-size: 2rem;
+  font-size: 1.375rem;
 }
 .description p {
   padding-bottom: 0.3rem;
@@ -954,8 +942,8 @@ ul p {
 .file:first-of-type {
   border-top: solid 0.1rem #ffffff;
 }
-.no-up-arrow{
-  padding-bottom:2rem;
+.no-up-arrow {
+  padding-bottom: 2rem;
 }
 /*made for recenzje.html*/
 .review {
@@ -970,23 +958,23 @@ ul p {
 .review span {
   color: #d8d8d8;
 }
-.down-arrow ion-icon{
+.down-arrow ion-icon {
   font-size: 3rem;
   --ionicon-stroke-width: 6px;
 }
-.down-arrow ion-icon:hover{
+.down-arrow ion-icon:hover {
   cursor: pointer;
-  color:#ff3d00;
+  color: #ff3d00;
 }
-.down-arrow{
+.down-arrow {
   display: flex;
-  border:none;
-  color:#ffffff;
+  border: none;
+  color: #ffffff;
   padding: 0;
-  margin:0;
+  margin: 0;
   transition: 0.3s;
 }
-.transformed{
+.transformed {
   transform: rotate(180deg);
 }
 .stars ion-icon {
@@ -1010,7 +998,6 @@ ul p {
 }
 .band-image {
   background-image: url(../Images/ZImkaOchwat.jpg);
- 
 }
 .band-image-2 {
   background-image: url(../Images/duoardente-band.jpg);
@@ -1143,12 +1130,7 @@ a:visited {
   h1 .second-word {
     font-size: 2.6rem;
   }
-  .description .first-word {
-    font-size: 1.1rem;
-  }
-  .description .second-word {
-    font-size: 1.375rem;
-  }
+  
 
   main::before {
     top: 4rem;
@@ -1236,6 +1218,12 @@ a:visited {
   .title h3 .second-word {
     font-size: 4rem;
   }
+  .description .first-word {
+    font-size: 1.5rem;
+  }
+  .description .second-word {
+    font-size: 2rem;
+  }
   .contact h4 {
     margin-top: 2rem;
   }
@@ -1262,8 +1250,8 @@ a:visited {
     border-radius: 50%;
     z-index: -1;
   }
-  input{
-    margin-top:0;
+  input {
+    margin-top: 0;
   }
 
   .text-circle::before {
@@ -1504,7 +1492,7 @@ a:visited {
   .other-bands {
     justify-content: space-between;
     flex-direction: row;
-   }
+  }
   .desktop-contact {
     display: flex;
     justify-content: space-between;
@@ -1520,7 +1508,6 @@ a:visited {
     background-size: cover;
     background-position: 20% 30%;
   }
-  
 }
 @media (min-width: 1400px) {
   .wide-screen-hidden {

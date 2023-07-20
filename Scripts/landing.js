@@ -1,16 +1,14 @@
-import { menuButton, toggleMenuHandler} from "./navigation.js";
+import { menuButton, toggleMenuHandler } from "./navigation.js";
 import {
   datesBackButton,
   datesForwardButton,
   arrayBackwardHandler,
   arrayForwardHandler,
-  datesMoveHandler
+  datesMoveHandler,
 } from "./concerts-menu.js";
-import { sendMail, validateEmail} from "./kontakt.js";
-
+import { sendMail, validateEmail } from "./kontakt.js";
 
 emailjs.init("5GZD6bKI9widLn-mj");
-
 
 const recordsArray = Array.from(document.querySelectorAll(".record"));
 const innerCarousel = document.querySelector(".inner-carousel");
@@ -19,8 +17,6 @@ const description = document.querySelector(".description");
 const text = description.querySelectorAll("p");
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
-
-
 
 class Record {
   constructor(imageURL, alternative, firstTitle, secondTitle, date, publisher) {
@@ -75,13 +71,11 @@ let records = [
     "sads"
   ),
 ];
-let touchstart;
+
 let arrayOfSlide = [];
 const mainImageStyle = recordsArray[2].children[0].style;
 const nextImageStyle = recordsArray[3].children[0].style;
 const previousImageStyle = recordsArray[1].children[0].style;
-
-
 
 const recordsNameHandler = (index) => {
   title.children[0].textContent = records[index].firstTitle;
@@ -122,36 +116,52 @@ const recordsMoveHandler = (evt) => {
 };
 
 const resetStyles = () => {
-  mainImageStyle.width = "66vw";
-  mainImageStyle.height = "66vw";
+  mainImageStyle.width = "calc(129px + 20vw)";
+  mainImageStyle.height = "calc(129px + 20vw)";
   mainImageStyle.filter = "none";
-  nextImageStyle.width = "34vw";
-  nextImageStyle.height = "34vw";
+  nextImageStyle.width = "calc(39px + 20vw)";
+  nextImageStyle.height = "calc(39px + 20vw)";
   nextImageStyle.filter = "grayscale(100%)";
-  previousImageStyle.width = "34vw";
-  previousImageStyle.height = "34vw";
+  previousImageStyle.width = "calc(39px + 20vw)";
+  previousImageStyle.height = "calc(39px + 20vw)";
   previousImageStyle.filter = "grayscale(100%)";
 };
 
-const recordsSlideHandler = (event) => {
+const recordsSlideHandler = () => {
   resetStyles();
+  let touchstart = arrayOfSlide[0];
+  let touchend = arrayOfSlide[arrayOfSlide.length - 1];
+  console.log(touchstart,touchend)
   arrayOfSlide = [];
   innerCarousel.style.right = "0";
-  let touchend = event.changedTouches[0].screenX;
+  mainImageStyle.maxWidth = "26.5rem";
+  mainImageStyle.maxHeight = "26.5rem";
+  nextImageStyle.maxWidth = "13.5rem";
+  nextImageStyle.maxHeight = "13.5rem";
+  previousImageStyle.maxWidth = "13.5rem";
+  previousImageStyle.maxHeight = "13.5rem";
   if (touchstart === touchend) return;
   touchstart > touchend
     ? arrayForwardHandler(records)
     : arrayBackwardHandler(records);
   recordsLoadHandler();
 };
+let mainImageLeft = recordsArray[2].getBoundingClientRect().left;
+let mainImageRight = recordsArray[2].getBoundingClientRect().right;
 
 const recordsMoveAnimation = (event) => {
   arrayOfSlide.push(event.changedTouches[0].pageX);
   let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
   let calculatedNumber = Math.abs(numberOfPageX);
   innerCarousel.style.right = `${numberOfPageX}px`;
-  mainImageStyle.width = `calc(66vw - ${calculatedNumber * 0.25}vw)`;
-  mainImageStyle.height = `calc(66vw - ${calculatedNumber * 0.25}vw)`;
+  mainImageStyle.minWidth = "calc(39px + 20vw)";
+  mainImageStyle.minHeight = "calc(39px + 20vw)";
+  previousImageStyle.maxWidth = "calc(130px + 20vw)";
+  previousImageStyle.maxHeight = "calc(130px + 20vw)";
+  nextImageStyle.maxWidth = "calc(130px + 20vw)";
+  nextImageStyle.maxHeight = "calc(130px + 20vw)";
+  mainImageStyle.width = `calc(129px + 20vw  - ${calculatedNumber}px)`;
+  mainImageStyle.height = `calc(129px + 20vw - ${calculatedNumber}px)`;
   mainImageStyle.filter = `grayscale(${
     (window.innerWidth * calculatedNumber) / 326
   }%)`;
@@ -160,24 +170,24 @@ const recordsMoveAnimation = (event) => {
   text[0].textContent = records[2].date;
   text[1].textContent = records[2].publisher;
   if (numberOfPageX > 0) {
-    nextImageStyle.width = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
-    nextImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
+    nextImageStyle.width = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    nextImageStyle.height = `calc(39px + 20vw + ${calculatedNumber}px)`;
     nextImageStyle.filter = `grayscale(${
       100 - (window.innerWidth * calculatedNumber) / 326
     }%)`;
-    if (recordsArray[3].children[0].clientWidth > window.innerWidth * 0.755) {
+    if (recordsArray[3].getBoundingClientRect().left <= mainImageLeft) {
       arrayForwardHandler(records);
       recordsLoadHandler();
       resetStyles();
       arrayOfSlide = [];
-      innerCarousel.style.right = "0"; 
+      innerCarousel.style.right = "0";
     }
   }
   if (numberOfPageX < 0) {
-    previousImageStyle.width = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
-    previousImageStyle.height = `calc(34vw + ${calculatedNumber * 0.25}vw)`;
+    previousImageStyle.width = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    previousImageStyle.height = `calc(39px + 20vw + ${calculatedNumber}px)`;
     previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
-    if (recordsArray[1].children[0].clientWidth > window.innerWidth * 0.755) {
+    if (recordsArray[1].getBoundingClientRect().right >= mainImageRight) {
       arrayBackwardHandler(records);
       recordsLoadHandler();
       resetStyles();
@@ -187,7 +197,6 @@ const recordsMoveAnimation = (event) => {
   }
 };
 
-
 recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
@@ -196,13 +205,7 @@ recordsLoadHandler();
 menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
-innerCarousel.addEventListener(
-  "touchstart",
-  (event) => {
-    return (touchstart = event.changedTouches[0].screenX);
-  },
-  { passive: true }
-);
+
 innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {
   passive: true,
 });
@@ -213,3 +216,7 @@ mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 sendMailButton.addEventListener("click", sendMail);
+window.addEventListener('resize', function () { 
+  "use strict";
+  window.location.reload(); 
+});
