@@ -421,6 +421,7 @@ a,
   padding:1rem;
   filter: grayscale(100%);
   pointer-events: none;
+  
 }
 .description {
   text-align: start;
