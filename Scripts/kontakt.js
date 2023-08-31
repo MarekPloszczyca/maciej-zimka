@@ -1,5 +1,5 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
-export{ validateEmail, sendMail};
+
 
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
@@ -38,3 +38,5 @@ mailForm.addEventListener("submit", (event) => {
     event.preventDefault();
   });
   sendMailButton.addEventListener("click", sendMail);
+ 
+  export { validateEmail, sendMail};

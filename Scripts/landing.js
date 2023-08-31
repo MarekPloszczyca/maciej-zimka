@@ -36,7 +36,7 @@ let records = [
     "DUO",
     "ARDENTE",
     "1020",
-    "sads"
+    "wyd. Independent Digital 1020"
   ),
   new Record(
     "../Images/Out-of-the-circle.jpg",
@@ -44,7 +44,7 @@ let records = [
     "OUT OF THE",
     "CIRCLE",
     "2026",
-    "sads"
+    "wyd. Independent Digital 2026"
   ),
   new Record(
     "../Images/traum-vogel.jpg",
@@ -52,7 +52,7 @@ let records = [
     "TRAUM",
     "VOGEL",
     "2023",
-    "sads"
+    "wyd. Independent Digital 2023"
   ),
   new Record(
     "../Images/Accochameleon.jpg",
@@ -60,7 +60,7 @@ let records = [
     "ACCO",
     "CHAMELEON",
     "2021",
-    "sads"
+    "wyd. Independent Digital 2021"
   ),
   new Record(
     "../Images/Quasi-una-fantasia.jpg",
@@ -68,7 +68,7 @@ let records = [
     "QUASI UNA",
     "FANTASIA",
     "2024",
-    "sads"
+    "wyd. Independent Digital 2024"
   ),
 ];
 
@@ -131,7 +131,6 @@ const recordsSlideHandler = () => {
   resetStyles();
   let touchstart = arrayOfSlide[0];
   let touchend = arrayOfSlide[arrayOfSlide.length - 1];
-  console.log(touchstart,touchend)
   arrayOfSlide = [];
   innerCarousel.style.right = "0";
   mainImageStyle.maxWidth = "26.5rem";

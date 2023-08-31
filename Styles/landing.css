@@ -943,6 +943,13 @@ ul p {
 .file:first-of-type {
   border-top: solid 0.1rem #ffffff;
 }
+.file:hover{
+  cursor: pointer;
+}
+.file:hover.file ion-icon{
+  border:solid 0.1rem #ffffff;
+  border-radius:50%;
+}
 .no-up-arrow {
   padding-bottom: 2rem;
 }

@@ -1,14 +1,5 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
-export {
-  allConcerts,
-  concerts,
-  datesBackButton,
-  datesForwardButton,
-  datesLoadHandler,
-  arrayBackwardHandler,
-  arrayForwardHandler,
-  datesMoveHandler,
-};
+
 
 const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
@@ -118,3 +109,14 @@ datesLoadHandler();
 menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
+
+export {
+  allConcerts,
+  concerts,
+  datesBackButton,
+  datesForwardButton,
+  datesLoadHandler,
+  arrayBackwardHandler,
+  arrayForwardHandler,
+  datesMoveHandler,
+};

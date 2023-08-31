@@ -1,4 +1,4 @@
-export {menuButton, toggleMenuHandler};
+
 const menuButton = document.querySelector(".menu-icon");
 const burgerMenu = document.querySelector(".hidden");
 const burgerDropdown = document.querySelector(".burger-dropdown");
@@ -21,3 +21,4 @@ const toggleMenuHandler = () => {
 
   burgerDropdown.addEventListener("click", dropdownHandler);
   menuButton.addEventListener("click", toggleMenuHandler);
+  export {menuButton, toggleMenuHandler};

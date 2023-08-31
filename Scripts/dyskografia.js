@@ -1,4 +1,225 @@
-import { menuButton, toggleMenuHandler} from "./navigation.js";
+import { menuButton, toggleMenuHandler } from "./navigation.js";
 
+const recordsArray = Array.from(document.querySelectorAll(".record"));
+const innerCarousel = document.querySelector(".inner-carousel");
+const title = document.querySelector("h5");
+const publisher = document.querySelector(".publisher");
+const buyButton = document.querySelector(".info button");
+const image = document.querySelector(".details img");
+
+class Record {
+  constructor(
+    imageURL,
+    alternative,
+    firstTitle,
+    secondTitle,
+    date,
+    publisher,
+    toBuy
+  ) {
+    this.imageURL = imageURL;
+    this.alternative = alternative;
+    this.firstTitle = firstTitle;
+    this.secondTitle = secondTitle;
+    this.date = date;
+    this.publisher = publisher;
+    this.toBuy = toBuy;
+  }
+}
+
+let records = [
+  new Record(
+    "../Images/Duo-ardente.jpg",
+    "DuoArdente",
+    "DUO",
+    "ARDENTE",
+    "1020",
+    "wyd. Independent Digital 1020",
+    false
+  ),
+  new Record(
+    "../Images/Out-of-the-circle.jpg",
+    "OutOfTheCircle",
+    "OUT OF THE",
+    "CIRCLE",
+    "2026",
+    "wyd. Independent Digital 2026",
+    false
+  ),
+  new Record(
+    "../Images/traum-vogel.jpg",
+    "TraumVogel",
+    "TRAUM",
+    "VOGEL",
+    "2023",
+    "wyd. Independent Digital 2023",
+    true
+  ),
+  new Record(
+    "../Images/Accochameleon.jpg",
+    "Accochameleon",
+    "ACCO",
+    "CHAMELEON",
+    "2021",
+    "wyd. Independent Digital 2021",
+    false
+  ),
+  new Record(
+    "../Images/Quasi-una-fantasia.jpg",
+    "QuasiUnaFantasia",
+    "QUASI UNA",
+    "FANTASIA",
+    "2024",
+    "wyd. Independent Digital 2024",
+    false
+  ),
+];
+
+const arrayBackwardHandler = (array) => {
+  let element = array.pop();
+  array.unshift(element);
+};
+const arrayForwardHandler = (array) => {
+  let element = array.shift();
+  array.push(element);
+};
+
+let arrayOfSlide = [];
+const mainImageStyle = recordsArray[2].children[0].style;
+const nextImageStyle = recordsArray[3].children[0].style;
+const previousImageStyle = recordsArray[1].children[0].style;
+
+const recordsNameHandler = (index) => {
+  image.src = records[index].imageURL;
+  title.children[0].textContent = records[index].firstTitle;
+  title.children[1].textContent = records[index].secondTitle;
+  publisher.textContent = records[index].publisher;
+  !records[index].toBuy
+    ? (buyButton.className = "hidden")
+    : (buyButton.className = "white");
+};
+
+const recordsLoadHandler = () => {
+  for (let i = 0; i < 5; i++) {
+    const img = recordsArray[i].querySelector("img");
+    img.src = records[i].imageURL;
+    img.alt = records[i].alternative;
+  }
+  recordsNameHandler(2);
+};
+
+const recordsMoveHandler = (evt) => {
+  switch (recordsArray.indexOf(evt.target)) {
+    case 0:
+      arrayBackwardHandler(records);
+      arrayBackwardHandler(records);
+      break;
+    case 1:
+      arrayBackwardHandler(records);
+      break;
+    case 2:
+      return;
+    case 3:
+      arrayForwardHandler(records);
+      break;
+    case 4:
+      arrayForwardHandler(records);
+      arrayForwardHandler(records);
+      break;
+  }
+  recordsLoadHandler();
+};
+
+const resetStyles = () => {
+  mainImageStyle.width = "calc(129px + 20vw)";
+  mainImageStyle.height = "calc(129px + 20vw)";
+  mainImageStyle.filter = "none";
+  nextImageStyle.width = "calc(39px + 20vw)";
+  nextImageStyle.height = "calc(39px + 20vw)";
+  nextImageStyle.filter = "grayscale(100%)";
+  previousImageStyle.width = "calc(39px + 20vw)";
+  previousImageStyle.height = "calc(39px + 20vw)";
+  previousImageStyle.filter = "grayscale(100%)";
+};
+
+const recordsSlideHandler = () => {
+  resetStyles();
+  let touchstart = arrayOfSlide[0];
+  let touchend = arrayOfSlide[arrayOfSlide.length - 1];
+  arrayOfSlide = [];
+  innerCarousel.style.right = "0";
+  mainImageStyle.maxWidth = "26.5rem";
+  mainImageStyle.maxHeight = "26.5rem";
+  nextImageStyle.maxWidth = "13.5rem";
+  nextImageStyle.maxHeight = "13.5rem";
+  previousImageStyle.maxWidth = "13.5rem";
+  previousImageStyle.maxHeight = "13.5rem";
+  if (touchstart === touchend) return;
+  touchstart > touchend
+    ? arrayForwardHandler(records)
+    : arrayBackwardHandler(records);
+  recordsLoadHandler();
+};
+let mainImageLeft = recordsArray[2].getBoundingClientRect().left;
+let mainImageRight = recordsArray[2].getBoundingClientRect().right;
+
+const recordsMoveAnimation = (event) => {
+  arrayOfSlide.push(event.changedTouches[0].pageX);
+  let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
+  let calculatedNumber = Math.abs(numberOfPageX);
+  innerCarousel.style.right = `${numberOfPageX}px`;
+  mainImageStyle.minWidth = "calc(39px + 20vw)";
+  mainImageStyle.minHeight = "calc(39px + 20vw)";
+  previousImageStyle.maxWidth = "calc(130px + 20vw)";
+  previousImageStyle.maxHeight = "calc(130px + 20vw)";
+  nextImageStyle.maxWidth = "calc(130px + 20vw)";
+  nextImageStyle.maxHeight = "calc(130px + 20vw)";
+  mainImageStyle.width = `calc(129px + 20vw  - ${calculatedNumber}px)`;
+  mainImageStyle.height = `calc(129px + 20vw - ${calculatedNumber}px)`;
+  mainImageStyle.filter = `grayscale(${
+    (window.innerWidth * calculatedNumber) / 326
+  }%)`;
+  if (numberOfPageX > 0) {
+    nextImageStyle.width = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    nextImageStyle.height = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    nextImageStyle.filter = `grayscale(${
+      100 - (window.innerWidth * calculatedNumber) / 326
+    }%)`;
+    if (recordsArray[3].getBoundingClientRect().left <= mainImageLeft) {
+      arrayForwardHandler(records);
+      recordsLoadHandler();
+      resetStyles();
+      arrayOfSlide = [];
+      innerCarousel.style.right = "0";
+    }
+  }
+  if (numberOfPageX < 0) {
+    previousImageStyle.width = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    previousImageStyle.height = `calc(39px + 20vw + ${calculatedNumber}px)`;
+    previousImageStyle.filter = `grayscale(${100 - calculatedNumber}%)`;
+    if (recordsArray[1].getBoundingClientRect().right >= mainImageRight) {
+      arrayBackwardHandler(records);
+      recordsLoadHandler();
+      resetStyles();
+      arrayOfSlide = [];
+      innerCarousel.style.right = "0";
+    }
+  }
+};
+
+recordsArray.forEach((record) => {
+  record.addEventListener("click", recordsMoveHandler);
+});
 
 menuButton.addEventListener("click", toggleMenuHandler);
+innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {
+  passive: true,
+});
+innerCarousel.addEventListener("touchend", recordsSlideHandler, {
+  passive: true,
+});
+recordsLoadHandler();
+window.addEventListener('resize', function () { 
+    "use strict";
+    window.location.reload(); 
+  });
