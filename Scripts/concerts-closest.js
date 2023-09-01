@@ -8,6 +8,7 @@ import {
 const buttons = document.querySelector(".buttons");
 const dateArrows = document.querySelectorAll(".date-buttons ion-icon");
 const gridTable = document.querySelector(".archive");
+
 let uniqueYears, yearConcerts, index;
 
 const closestConcertHandler = () => {
@@ -27,12 +28,20 @@ const closestConcertHandler = () => {
   };
   moreInfo[0].textContent = closest.date;
   day.textContent = dayOfWeek[date].toUpperCase();
-  moreInfo[3].textContent = closest.title;
+  moreInfo[2].textContent = closest.title;
   addressInfo[0].textContent = closest.city.toUpperCase();
   addressInfo[1].textContent = closest.place.toUpperCase();
   addressInfo[2].textContent = closest.street.toUpperCase();
-  moreInfo[5].textContent = "GODZ. " + `${closest.time}`;
-  moreInfo[6].textContent = closest.artists;
+  moreInfo[4].textContent = "GODZ. " + `${closest.time}`;
+  moreInfo[5].textContent = closest.artists;
+};
+
+const yearsReload = () => {
+  const buttonsArray = buttons.querySelectorAll("button");
+  for (let i = 0; i < 3; i++) {
+    buttonsArray[i].textContent = uniqueYears[index + i];
+  }
+  hidingButtonsHandler(buttonsArray);
 };
 
 const yearButtonsLoader = () => {
@@ -70,13 +79,6 @@ const yearButtonsLoader = () => {
         concertsAppender();
       });
     }
-  }
-};
-
-const yearsReload = () => {
-  const buttonsArray = buttons.querySelectorAll("button");
-  for (let i = 0; i < 3; i++) {
-    buttonsArray[i].textContent = uniqueYears[index + i];
   }
 };
 
@@ -129,7 +131,9 @@ const concertsAppender = () => {
     };
 
     container.classList.add("centered", "underscored", "archive-grid");
-    if(i == 1){container.classList.add("grid-2")}
+    if (i == 1) {
+      container.classList.add("grid-2");
+    }
     dateContainer.classList.add("first-word", "centered", "white", "date");
     place.classList.add("white");
     name.classList.add("colored");
@@ -153,6 +157,26 @@ closestConcertHandler();
 yearButtonsLoader();
 concertsAssignHandler();
 concertsAppender();
+
+const firstYear = uniqueYears[0];
+const lastYear = uniqueYears[uniqueYears.length - 1];
+const mainYear = document.querySelector(".main-year");
+
+const hidingButtonsHandler = (array) => {
+  if (firstYear.toString() === mainYear.textContent) {
+    dateArrows[0].classList.add("non-clickable");
+    return array[0].classList.add("non-clickable");
+  }
+  if (lastYear.toString() === mainYear.textContent) {
+    dateArrows[1].classList.add("non-clickable");
+    return array[2].classList.add("non-clickable");
+  } else {
+    dateArrows[0].classList.remove("non-clickable");
+    array[0].classList.remove("non-clickable");
+    dateArrows[1].classList.remove("non-clickable");
+    return array[2].classList.remove("non-clickable");
+  }
+};
 
 dateArrows[0].addEventListener("click", () => {
   arrayBackwardHandler(uniqueYears);

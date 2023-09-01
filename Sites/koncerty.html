@@ -39,7 +39,7 @@
       </div>
       <ul class="small-screen-hidden menu white centered">
         <li><a href="bio.html">BIO</a></li>
-        <li><a href="koncerty.html">KONCERTY</a></li>
+        <li><a href="koncerty.html" class="menu-active">KONCERTY</a></li>
         <li><a href="recenzje.html">RECENZJE</a></li>
         <li><a href="dyskografia.html">DYSKOGRAFIA</a></li>
         <li><a href="kompozycja.html">KOMPOZYCJE</a></li>
@@ -91,9 +91,9 @@
       <div class="desktop-schedule">
         <div class="test desktop-only"></div>
         <div class="schedule">
-          <div><p class="first-word white date underscored">
+          <div><p class="first-word white date underscored"></p>
             <p class="tablet-hidden white underscored"></p>
-          </p></div>
+          </div>
           <p class="colored underscored">
           </p>
           <p class="address underscored white">
@@ -108,28 +108,33 @@
           </p>
         </div>
       </div>
-      <content class="dates centered"
-        ><ion-icon name="chevron-back-outline" class="white back"></ion-icon>
-        <div class="single-concert centered">
-          <p class="first-word white date"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-place white"></p>
-        </div>
-        <div class="single-concert centered">
-          <p class="first-word white date"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-place white"></p>
-        </div>
-        <div class="single-concert centered">
-          <p class="first-word white date"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-name colored"></p>
-          <p class="concert-place white"></p>
-        </div>
-        <ion-icon name="chevron-forward-outline" class="white forward"></ion-icon
-      ></content>
+      <div class="centered">
+        <ion-icon name="chevron-back-outline" class="back date-back white"></ion-icon>
+        <content class="dates centered">
+          <div class="single-concert centered">
+            <p class="first-word white date"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-place white"></p>
+          </div>
+          <div class="single-concert centered">
+            <p class="first-word white date"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-place white"></p>
+          </div>
+          <div class="single-concert centered">
+            <p class="first-word white date"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-name colored"></p>
+            <p class="concert-place white"></p>
+          </div>
+        </content>
+        <ion-icon
+          name="chevron-forward-outline"
+          class="forward date-forward white"
+        ></ion-icon>
+      </div>
       <div class="one-word-title centered">
         <h3>
           <span class="first-word white">KONCER</span>

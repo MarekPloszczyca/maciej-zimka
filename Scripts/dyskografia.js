@@ -95,8 +95,8 @@ const recordsNameHandler = (index) => {
   title.children[1].textContent = records[index].secondTitle;
   publisher.textContent = records[index].publisher;
   !records[index].toBuy
-    ? (buyButton.className = "hidden")
-    : (buyButton.className = "white");
+    ? buyButton.classList.add("hidden")
+    : buyButton.classList.remove("hidden");
 };
 
 const recordsLoadHandler = () => {
@@ -128,6 +128,32 @@ const recordsMoveHandler = (evt) => {
       break;
   }
   recordsLoadHandler();
+  pageScroll()
+};
+
+
+const cursorChangeHandler = (event) => {
+  event.pageX > window.innerWidth / 2
+    ? innerCarousel.classList.add("inner-carousel-forward")
+    : innerCarousel.classList.remove("inner-carousel-forward");
+};
+
+const pageScroll = () => {
+  window.scrollTo({
+    top: 200,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
+const recordsWithCursorMoveHandler = (evt) => {
+  if (evt.target === innerCarousel) {
+    innerCarousel.classList.contains("inner-carousel-forward")
+      ? arrayForwardHandler(records)
+      : arrayBackwardHandler(records);
+    recordsLoadHandler();
+    pageScroll();
+  }
 };
 
 const resetStyles = () => {
@@ -159,6 +185,7 @@ const recordsSlideHandler = () => {
     ? arrayForwardHandler(records)
     : arrayBackwardHandler(records);
   recordsLoadHandler();
+  pageScroll();
 };
 let mainImageLeft = recordsArray[2].getBoundingClientRect().left;
 let mainImageRight = recordsArray[2].getBoundingClientRect().right;
@@ -212,6 +239,8 @@ recordsArray.forEach((record) => {
 });
 
 menuButton.addEventListener("click", toggleMenuHandler);
+innerCarousel.addEventListener("mousemove", cursorChangeHandler);
+innerCarousel.addEventListener("click", recordsWithCursorMoveHandler);
 innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {
   passive: true,
 });
@@ -219,7 +248,7 @@ innerCarousel.addEventListener("touchend", recordsSlideHandler, {
   passive: true,
 });
 recordsLoadHandler();
-window.addEventListener('resize', function () { 
-    "use strict";
-    window.location.reload(); 
-  });
+window.addEventListener("resize", function () {
+  "use strict";
+  window.location.reload();
+});

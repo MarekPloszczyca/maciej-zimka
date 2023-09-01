@@ -1,6 +1,5 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 
-
 const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
 const datesForwardButton = document.querySelector(".forward");
@@ -58,6 +57,37 @@ let concerts = allConcerts
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 
+const firstConcert = concerts[0];
+const lastConcert = concerts[concerts.length - 1];
+
+const hidingButtonsHandler = () => {
+  const width = window.innerWidth;
+  visibleConcerts[0].children[0].textContent === firstConcert.date
+    ? datesBackButton.classList.add("non-clickable")
+    : datesBackButton.classList.remove("non-clickable");
+  if (
+    width < 768 &&
+    visibleConcerts[0].children[0].textContent === lastConcert.date
+  ) {
+   return datesForwardButton.classList.add("non-clickable");
+  }
+  if (
+    width >= 768 &&
+    width < 1200 &&
+    visibleConcerts[1].children[0].textContent === lastConcert.date
+  ) {
+    return datesForwardButton.classList.add("non-clickable");
+  }
+  if (
+    width >= 1200 &&
+    visibleConcerts[2].children[0].textContent === lastConcert.date
+  ) {
+    return datesForwardButton.classList.add("non-clickable");
+  } else {
+    return datesForwardButton.classList.remove("non-clickable");
+  }
+};
+
 const datesLoadHandler = () => {
   for (let i = 0; i < 3; i++) {
     visibleConcerts[i].children[0].textContent = concerts[i].date;
@@ -67,6 +97,7 @@ const datesLoadHandler = () => {
       i
     ].city.toUpperCase()} -`;
   }
+  hidingButtonsHandler();
 };
 
 const arrayBackwardHandler = (array) => {
@@ -109,6 +140,10 @@ datesLoadHandler();
 menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
+window.addEventListener("resize", function () {
+  "use strict";
+  window.location.reload();
+});
 
 export {
   allConcerts,

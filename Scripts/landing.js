@@ -6,7 +6,7 @@ import {
   arrayForwardHandler,
   datesMoveHandler,
 } from "./concerts-menu.js";
-import { sendMail, validateEmail } from "./kontakt.js";
+import { sendMail } from "./kontakt.js";
 
 emailjs.init("5GZD6bKI9widLn-mj");
 
@@ -115,15 +115,34 @@ const recordsMoveHandler = (evt) => {
   recordsLoadHandler();
 };
 
+const cursorChangeHandler = (event) => {
+  event.pageX > window.innerWidth / 2
+    ? innerCarousel.classList.add("inner-carousel-forward")
+    : innerCarousel.classList.remove("inner-carousel-forward");
+};
+const recordsWithCursorMoveHandler = (evt) => {
+  if (evt.target === innerCarousel) {
+    innerCarousel.classList.contains("inner-carousel-forward")
+      ? arrayForwardHandler(records)
+      : arrayBackwardHandler(records);
+    recordsLoadHandler();
+  }
+};
+
+const mainImageDimensions = "calc(129px + 20vw)";
+const maxMainDimensions = "26.5rem";
+const smallImagesDimensions = "calc(39px + 20vw)";
+const maxSmallDimensions = "13.5rem";
+
 const resetStyles = () => {
-  mainImageStyle.width = "calc(129px + 20vw)";
-  mainImageStyle.height = "calc(129px + 20vw)";
+  mainImageStyle.width = mainImageDimensions;
+  mainImageStyle.height = mainImageDimensions;
   mainImageStyle.filter = "none";
-  nextImageStyle.width = "calc(39px + 20vw)";
-  nextImageStyle.height = "calc(39px + 20vw)";
+  nextImageStyle.width = smallImagesDimensions;
+  nextImageStyle.height = smallImagesDimensions;
   nextImageStyle.filter = "grayscale(100%)";
-  previousImageStyle.width = "calc(39px + 20vw)";
-  previousImageStyle.height = "calc(39px + 20vw)";
+  previousImageStyle.width = smallImagesDimensions;
+  previousImageStyle.height = smallImagesDimensions;
   previousImageStyle.filter = "grayscale(100%)";
 };
 
@@ -133,12 +152,12 @@ const recordsSlideHandler = () => {
   let touchend = arrayOfSlide[arrayOfSlide.length - 1];
   arrayOfSlide = [];
   innerCarousel.style.right = "0";
-  mainImageStyle.maxWidth = "26.5rem";
-  mainImageStyle.maxHeight = "26.5rem";
-  nextImageStyle.maxWidth = "13.5rem";
-  nextImageStyle.maxHeight = "13.5rem";
-  previousImageStyle.maxWidth = "13.5rem";
-  previousImageStyle.maxHeight = "13.5rem";
+  mainImageStyle.maxWidth = maxMainDimensions;
+  mainImageStyle.maxHeight = maxMainDimensions;
+  nextImageStyle.maxWidth = maxSmallDimensions;
+  nextImageStyle.maxHeight = maxSmallDimensions;
+  previousImageStyle.maxWidth = maxSmallDimensions;
+  previousImageStyle.maxHeight = maxSmallDimensions;
   if (touchstart === touchend) return;
   touchstart > touchend
     ? arrayForwardHandler(records)
@@ -153,12 +172,12 @@ const recordsMoveAnimation = (event) => {
   let numberOfPageX = arrayOfSlide[0] - arrayOfSlide[arrayOfSlide.length - 1];
   let calculatedNumber = Math.abs(numberOfPageX);
   innerCarousel.style.right = `${numberOfPageX}px`;
-  mainImageStyle.minWidth = "calc(39px + 20vw)";
-  mainImageStyle.minHeight = "calc(39px + 20vw)";
-  previousImageStyle.maxWidth = "calc(130px + 20vw)";
-  previousImageStyle.maxHeight = "calc(130px + 20vw)";
-  nextImageStyle.maxWidth = "calc(130px + 20vw)";
-  nextImageStyle.maxHeight = "calc(130px + 20vw)";
+  mainImageStyle.minWidth = smallImagesDimensions;
+  mainImageStyle.minHeight = smallImagesDimensions;
+  previousImageStyle.maxWidth = mainImageDimensions;
+  previousImageStyle.maxHeight = mainImageDimensions;
+  nextImageStyle.maxWidth = mainImageDimensions;
+  nextImageStyle.maxHeight = mainImageDimensions;
   mainImageStyle.width = `calc(129px + 20vw  - ${calculatedNumber}px)`;
   mainImageStyle.height = `calc(129px + 20vw - ${calculatedNumber}px)`;
   mainImageStyle.filter = `grayscale(${
@@ -196,6 +215,8 @@ const recordsMoveAnimation = (event) => {
   }
 };
 
+
+
 recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
@@ -205,6 +226,8 @@ menuButton.addEventListener("click", toggleMenuHandler);
 datesBackButton.addEventListener("click", datesMoveHandler);
 datesForwardButton.addEventListener("click", datesMoveHandler);
 
+innerCarousel.addEventListener("mousemove", cursorChangeHandler);
+innerCarousel.addEventListener("click", recordsWithCursorMoveHandler);
 innerCarousel.addEventListener("touchmove", recordsMoveAnimation, {
   passive: true,
 });
@@ -215,7 +238,7 @@ mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 sendMailButton.addEventListener("click", sendMail);
-window.addEventListener('resize', function () { 
+window.addEventListener("resize", function () {
   "use strict";
-  window.location.reload(); 
+  window.location.reload();
 });

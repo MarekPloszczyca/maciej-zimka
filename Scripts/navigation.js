@@ -19,6 +19,7 @@ const toggleMenuHandler = () => {
     bands.classList.toggle("hidden");
   }
 
+
   burgerDropdown.addEventListener("click", dropdownHandler);
   menuButton.addEventListener("click", toggleMenuHandler);
   export {menuButton, toggleMenuHandler};

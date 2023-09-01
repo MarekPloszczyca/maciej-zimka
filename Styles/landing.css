@@ -18,10 +18,16 @@
 .colored {
   color: #ff3d00;
 }
-.hidden, .tablet-hidden {
+.non-clickable {
+  opacity: 0;
+  pointer-events: none !important;
+}
+.hidden,
+.tablet-hidden {
   display: none !important;
 }
-.desktop-only, .small-screen-hidden {
+.desktop-only,
+.small-screen-hidden {
   display: none;
 }
 nav {
@@ -221,20 +227,21 @@ ion-icon {
   padding: 5rem 0;
   overflow: hidden;
 }
-.dates :nth-child(3),
-.dates :nth-child(4) {
+.dates :nth-child(2),
+.dates :nth-child(3) {
   display: none;
 }
-.dates ion-icon {
+.back,
+.forward {
   position: relative;
   font-size: 1rem;
   z-index: 90;
 }
 .back {
-  right: 0.3rem;
+  right: -0.3rem;
 }
 .forward {
-  left: 0.3rem;
+  left: -0.3rem;
 }
 .back,
 .forward {
@@ -399,6 +406,12 @@ a,
 .inner-carousel {
   position: relative;
 }
+.inner-carousel:hover {
+  cursor: url(../Images/arrow-back-outline.svg), auto;
+}
+.inner-carousel-forward:hover {
+  cursor: url(../Images/arrow-forward-outline.svg), auto;
+}
 .record {
   cursor: pointer;
 }
@@ -408,8 +421,9 @@ a,
   height: calc(129px + 20vw);
   max-width: 26.5rem;
   max-height: 26.5rem;
-  padding:1rem;
- pointer-events: none;
+  padding: 1rem;
+  pointer-events: none;
+  user-select: none;
 }
 
 .previous-records img,
@@ -418,10 +432,10 @@ a,
   height: calc(39px + 20vw);
   max-width: 13.5rem;
   max-height: 13.5rem;
-  padding:1rem;
+  padding: 1rem;
   filter: grayscale(100%);
   pointer-events: none;
-  
+  user-select: none;
 }
 .description {
   text-align: start;
@@ -429,7 +443,7 @@ a,
   width: calc(129px + 20vw);
   max-width: 26.5rem;
   padding-bottom: 5rem;
-  padding-top:1rem;
+  padding-top: 1rem;
 }
 .description .first-word {
   font-size: 1.1rem;
@@ -765,6 +779,7 @@ h1 .second-word {
   font-weight: bold;
   margin-bottom: 3.5rem;
 }
+
 .main-year {
   color: #0f0f0f !important;
   background-color: #ff3d00;
@@ -816,9 +831,9 @@ h1 .second-word {
 }
 .cd-description img {
   max-width: 100%;
-  max-height: auto;
+
 }
-.cd-description h5 {
+.info h5 {
   padding: 1.5rem 0 0.5rem 0;
 }
 .cd-description p:first-of-type {
@@ -943,12 +958,12 @@ ul p {
 .file:first-of-type {
   border-top: solid 0.1rem #ffffff;
 }
-.file:hover{
+.file:hover {
   cursor: pointer;
 }
-.file:hover.file ion-icon{
-  border:solid 0.1rem #ffffff;
-  border-radius:50%;
+.file:hover.file ion-icon {
+  border: solid 0.1rem #ffffff;
+  border-radius: 50%;
 }
 .no-up-arrow {
   padding-bottom: 2rem;
@@ -1077,6 +1092,7 @@ a:visited {
   .one-word-title .second-word {
     font-size: 2.1rem;
   }
+  
 
   .back {
     left: 0.3rem;
@@ -1138,7 +1154,12 @@ a:visited {
   h1 .second-word {
     font-size: 2.6rem;
   }
-  
+  .info h5 .first-word{
+    font-size: 1.3rem;
+  }
+  .info h5 .second-word{
+    font-size: 1.6rem;
+  }
 
   main::before {
     top: 4rem;
@@ -1193,16 +1214,24 @@ a:visited {
     margin-left: 0;
     font-size: 3.9375rem;
   }
-  .dates :nth-child(3) {
+  .dates :nth-child(2) {
     display: flex;
   }
-  .back {
+  .date-back {
     left: 2rem;
   }
-  .forward {
+
+  .date-forward {
     left: -2rem;
   }
-  .dates ion-icon,
+  .date-buttons .back {
+    right: 1rem;
+  }
+  .date-buttons .forward {
+    left: 1rem;
+  }
+  .back,
+  .forward,
   .date-buttons ion-icon {
     font-size: 2rem;
   }
@@ -1307,11 +1336,11 @@ a:visited {
     box-shadow: inset 0.5rem 0.5rem 3rem 0.5rem #1d1d1d;
   }
 
-  .dates :nth-child(3) {
+  .dates :nth-child(2) {
     border-left: solid 0.1rem #d8d8d8;
     border-right: solid 0.1rem #d8d8d8;
   }
-  .dates :nth-child(4) {
+  .dates :nth-child(3) {
     display: flex;
   }
   .bio {
@@ -1531,11 +1560,14 @@ a:visited {
     color: #ff3d00 !important;
     cursor: pointer;
     border-bottom: solid 0.1rem #ff3d00;
-    transition: 0.5s;
+    transition: color 0.3s;
   }
   .menu li {
     font-family: "Open-sans", sans-serif;
     padding: 0 1rem;
+  }
+  .menu-active{
+    color:#ff3d00 !important;
   }
   .dropdown:hover .menu-bands {
     display: block;
