@@ -1,5 +1,6 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 
+const concertsContainer = document.querySelector(".inner-dates");
 const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
 const datesForwardButton = document.querySelector(".forward");
@@ -69,7 +70,7 @@ const hidingButtonsHandler = () => {
     width < 768 &&
     visibleConcerts[0].children[0].textContent === lastConcert.date
   ) {
-   return datesForwardButton.classList.add("non-clickable");
+    return datesForwardButton.classList.add("non-clickable");
   }
   if (
     width >= 768 &&
@@ -119,9 +120,38 @@ const dateSwipeAnimation = (direction) => {
   });
 };
 
-const datesMoveHandler = (evt) => {
-  datesForwardButton.removeEventListener("click", datesMoveHandler);
-  datesBackButton.removeEventListener("click", datesMoveHandler);
+const togglingListenersHandler = (removed) => {
+  if (!removed) {
+    datesForwardButton.removeEventListener("click", datesOnClickMoveHandler);
+    datesBackButton.removeEventListener("click", datesOnClickMoveHandler);
+    concertsContainer.removeEventListener("touchstart", datesTouch, {
+      passive: true,
+    });
+    concertsContainer.removeEventListener("touchend", datesTouch, {
+      passive: true,
+    });
+    concertsContainer.removeEventListener("touchmove", datesOnTouchHandler, {
+      passive: true,
+    });
+  } else {
+    setTimeout(() => {
+      datesForwardButton.addEventListener("click", datesOnClickMoveHandler);
+      datesBackButton.addEventListener("click", datesOnClickMoveHandler);
+      concertsContainer.addEventListener("touchstart", datesTouch, {
+        passive: true,
+      });
+      concertsContainer.addEventListener("touchend", datesTouch, {
+        passive: true,
+      });
+      concertsContainer.addEventListener("touchmove", datesOnTouchHandler, {
+        passive: true,
+      });
+    }, 1000);
+  }
+};
+
+const datesOnClickMoveHandler = (evt) => {
+  togglingListenersHandler(false);
   if (evt.target.className.includes("back")) {
     arrayBackwardHandler(concerts);
     dateSwipeAnimation("-10rem");
@@ -129,17 +159,91 @@ const datesMoveHandler = (evt) => {
     arrayForwardHandler(concerts);
     dateSwipeAnimation("10rem");
   }
-  setTimeout(() => {
-    datesForwardButton.addEventListener("click", datesMoveHandler);
-    datesBackButton.addEventListener("click", datesMoveHandler);
-  }, 1000);
+  togglingListenersHandler(true);
+  datesLoadHandler();
+};
+
+let arrayOfDatesSlide = [];
+let slideNumber;
+
+const datesOnTouchHandler = (event) => {
+  arrayOfDatesSlide.push(event.changedTouches[0].pageX);
+  slideNumber =
+    arrayOfDatesSlide[0] - arrayOfDatesSlide[arrayOfDatesSlide.length - 1];
+  if (slideNumber > 100 || slideNumber < -100) {
+    return slideNumber;
+  }
+  concertsContainer.style.right = `${slideNumber}px`;
+  return slideNumber;
+};
+
+const datesTouch = (evt) => {
+  const width = window.innerWidth;
+  if (evt.type === "touchstart") {
+    datesBackButton.classList.add("non-clickable");
+    datesForwardButton.classList.add("non-clickable");
+  }
+  if (evt.type === "touchend") {
+    if (
+      (width < 768 &&
+        visibleConcerts[0].children[0].textContent === firstConcert.date &&
+        slideNumber < 0) ||
+      (width < 768 &&
+        visibleConcerts[0].children[0].textContent === lastConcert.date &&
+        slideNumber > 0)
+    ) {
+      hidingButtonsHandler();
+      return (concertsContainer.style.right = "0");
+    }
+    if (
+      (width >= 768 &&
+        visibleConcerts[0].children[0].textContent === firstConcert.date &&
+        slideNumber < 0) ||
+      (width >= 768 &&
+        visibleConcerts[1].children[0].textContent === lastConcert.date &&
+        slideNumber > 0)
+    ) {
+      hidingButtonsHandler();
+      return (concertsContainer.style.right = "0");
+    }
+    if(slideNumber === 0){
+      return hidingButtonsHandler();
+      
+    }
+
+    datesOnTouchMoveHandler();
+  }
+  concertsContainer.style.right = "0";
+  arrayOfDatesSlide = [];
+  slideNumber = 0;
+};
+
+const datesOnTouchMoveHandler = () => {
+  togglingListenersHandler(false);
+  if (slideNumber <= 0) {
+    arrayBackwardHandler(concerts);
+    dateSwipeAnimation("-10rem");
+  } else {
+    arrayForwardHandler(concerts);
+    dateSwipeAnimation("10rem");
+  }
+  togglingListenersHandler(true);
   datesLoadHandler();
 };
 
 datesLoadHandler();
 menuButton.addEventListener("click", toggleMenuHandler);
-datesBackButton.addEventListener("click", datesMoveHandler);
-datesForwardButton.addEventListener("click", datesMoveHandler);
+concertsContainer.addEventListener("touchstart", datesTouch, {
+  passive: true,
+});
+concertsContainer.addEventListener("touchend", datesTouch, {
+  passive: true,
+});
+concertsContainer.addEventListener("touchmove", datesOnTouchHandler, {
+  passive: true,
+});
+datesBackButton.addEventListener("click", datesOnClickMoveHandler);
+datesForwardButton.addEventListener("click", datesOnClickMoveHandler);
 window.addEventListener("resize", function () {
   "use strict";
   window.location.reload();
@@ -153,5 +257,5 @@ export {
   datesLoadHandler,
   arrayBackwardHandler,
   arrayForwardHandler,
-  datesMoveHandler,
+  datesOnClickMoveHandler as datesMoveHandler,
 };
