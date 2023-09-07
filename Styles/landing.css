@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   background-color: #1d1d1d;
+  cursor: url(../Images/ellipse-outline.svg), auto;
 }
 
 .white {
@@ -59,7 +60,7 @@ nav {
 .menu-icon,
 .prof-icon-wrapper ion-icon,
 .prof-icon-wrapper i {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .bar1,
 .bar2,
@@ -117,7 +118,7 @@ nav {
   padding-top: 1rem;
 }
 .burger-dropdown:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .burger-dropdown ion-icon {
   transition: 0.3s;
@@ -185,9 +186,10 @@ nav {
   background: transparent;
 }
 .icons span:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .icons span:hover ion-icon {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ff3d00;
   transition: 0.5s;
 }
@@ -208,7 +210,6 @@ ion-icon {
   flex-direction: column;
   padding: 9rem 2rem 3rem 2rem;
   text-align: center;
-  
 }
 .concerts h3 {
   max-width: 20rem;
@@ -224,14 +225,13 @@ ion-icon {
 .concerts span {
   background: transparent;
 }
-.dates{
+.dates {
   padding: 5rem 0;
   overflow: hidden;
   user-select: none;
 }
 .inner-dates {
-  position:relative;
-  
+  position: relative;
 }
 .inner-dates :nth-child(2),
 .inner-dates :nth-child(3) {
@@ -255,7 +255,7 @@ ion-icon {
 }
 .back:hover,
 .forward:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ff3d00 !important;
   transition: 0.3s;
 }
@@ -353,14 +353,15 @@ a .arrow {
 a,
 .arrow div {
   background: transparent;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .arrow:hover .hidden-description {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   opacity: 1;
   transition: 0.3s;
 }
 .arrow:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .title-arrow {
   bottom: 2.1rem;
@@ -390,17 +391,19 @@ a,
 }
 .hidden-description span {
   background: transparent;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .hidden-description .second-word {
   margin-left: 1.3rem;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .title-arrow:hover .hidden-description {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   opacity: 1;
   transition: 0.3s;
 }
 .title-arrow:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .carousel {
   position: relative;
@@ -413,13 +416,13 @@ a,
   position: relative;
 }
 .inner-carousel:hover {
-  cursor: url(../Images/arrow-back-outline.svg), auto;
+  cursor: url(../Images/chevron-back-circle-outline.svg), auto;
 }
 .inner-carousel-forward:hover {
-  cursor: url(../Images/arrow-forward-outline.svg), auto;
+  cursor: url(../Images/chevron-forward-circle-outline.svg), auto;
 }
 .record {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 
 .main-record img {
@@ -507,6 +510,7 @@ input {
 }
 input:hover {
   border-color: #ff3d00;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 textarea {
   width: 85vw;
@@ -553,6 +557,7 @@ textarea:hover {
       #ff3d00 2.25rem,
       #ff3d00 2.375rem
     );
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 button {
   font-family: "Open Sans", sans-serif;
@@ -586,7 +591,7 @@ form button {
   bottom: 0.45rem;
 }
 button:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ff3d00 !important;
   transition: 0.5s;
 }
@@ -606,7 +611,7 @@ footer {
   padding: 0 0.5rem;
 }
 .footer-icon:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ffffff;
   transition: 0.5s;
 }
@@ -615,9 +620,10 @@ footer {
   font-size: 3.2rem;
 }
 footer span:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 footer span:hover ion-icon {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ffffff;
   transition: 0.5s;
 }
@@ -639,7 +645,7 @@ footer span:hover ion-icon {
   border-radius: 50%;
 }
 .logo-youtube:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   background-color: #ffffff;
   transition: 0.5s;
 }
@@ -720,6 +726,9 @@ ul {
 }
 main h5 {
   padding: 5rem 0;
+}
+main h5 span{
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 main div.arrow {
   width: 3rem;
@@ -837,7 +846,6 @@ h1 .second-word {
 }
 .cd-description img {
   max-width: 100%;
-
 }
 .info h5 {
   padding: 1.5rem 0 0.5rem 0;
@@ -867,13 +875,13 @@ ul p {
   font-size: 1.125rem;
   font-family: "Open-sans", sans-serif;
 }
-.hint{
-  font-family: "Open-sans",sans-serif;
-  font-style: italic;
+.hint {
+  text-align: center;
+  font-family: "Open-sans", sans-serif;
+  color: #ff3d00 !important;
+  padding-bottom: 0.8rem !important;
 }
-.hint span {
-  color:#ff3d00;
-}
+
 .tracklist .second-word {
   font-size: 3.5rem;
   padding-right: 1rem;
@@ -902,7 +910,7 @@ ul p {
   font-size: 3rem;
 }
 .fa-itunes:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ffffff;
   transition: 0.3s;
 }
@@ -916,7 +924,7 @@ ul p {
   color: #ff3d00;
 }
 .youtube-music svg:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ffffff;
   transition: 0.3s;
 }
@@ -972,7 +980,7 @@ ul p {
   border-top: solid 0.1rem #ffffff;
 }
 .file:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 .file:hover.file ion-icon {
   border: solid 0.1rem #ffffff;
@@ -995,11 +1003,10 @@ ul p {
   color: #d8d8d8;
 }
 .down-arrow ion-icon {
-  font-size: 3rem;
-  --ionicon-stroke-width: 6px;
+  font-size: 2rem;
 }
 .down-arrow ion-icon:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   color: #ff3d00;
 }
 .down-arrow {
@@ -1061,7 +1068,7 @@ main .underscored:last-of-type {
   transition: 0.3s;
 }
 .other-bands .centered:hover {
-  cursor: pointer;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
   border-bottom: solid 0.1rem #ff3d00;
 }
 .other-bands span.first-word {
@@ -1103,7 +1110,6 @@ a:visited {
   .one-word-title .second-word {
     font-size: 2.1rem;
   }
-  
 
   .back {
     left: 0.3rem;
@@ -1165,10 +1171,10 @@ a:visited {
   h1 .second-word {
     font-size: 2.6rem;
   }
-  .info h5 .first-word{
+  .info h5 .first-word {
     font-size: 1.3rem;
   }
-  .info h5 .second-word{
+  .info h5 .second-word {
     font-size: 1.6rem;
   }
 
@@ -1398,6 +1404,7 @@ a:visited {
   }
   .previous-records:hover img,
   .next-records:hover img {
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
     border-radius: 10%;
     box-shadow: inset 1px 5px 5px, inset -1px -5px 5px;
     filter: grayscale(0%);
@@ -1478,16 +1485,22 @@ a:visited {
     flex-direction: row-reverse;
   }
   .tracklist .underscored:hover {
-    cursor: pointer;
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
   }
   .tracklist .underscored:hover .track-number::before {
-    content: "Posłuchaj na Spotify";
+    content: "POSŁUCHAJ NA SPOTIFY";
     position: relative;
+    font-weight: bold;
+    color: #ffffff;
     right: 2rem;
     bottom: 0.3rem;
-    font-size: 1.5rem;
-    text-decoration: underline #ff3d00;
-    text-decoration-thickness: 0.1rem;
+    font-size: 1.2rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 2rem;
+    padding: 0.5rem;
+  }
+  .tracklist .underscored:hover .track-number {
+    color: #ff3d00 !important;
   }
   .compositions-container {
     display: flex;
@@ -1569,7 +1582,7 @@ a:visited {
   }
   .menu a:hover {
     color: #ff3d00 !important;
-    cursor: pointer;
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
     border-bottom: solid 0.1rem #ff3d00;
     transition: color 0.3s;
   }
@@ -1577,8 +1590,8 @@ a:visited {
     font-family: "Open-sans", sans-serif;
     padding: 0 1rem;
   }
-  .menu-active{
-    color:#ff3d00 !important;
+  .menu-active {
+    color: #ff3d00 !important;
   }
   .dropdown:hover .menu-bands {
     display: block;
@@ -1597,6 +1610,6 @@ a:visited {
   .menu-bands li:hover {
     color: #ff3d00;
     transition: 0.5s;
-    cursor: pointer;
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
   }
 }
