@@ -1,0 +1,1657 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #1d1d1d;
+  cursor: url(../Images/ellipse-outline.svg), auto;
+}
+
+.white {
+  color: #ffffff !important;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colored {
+  color: #ff3d00;
+}
+.non-clickable {
+  opacity: 0;
+  pointer-events: none !important;
+}
+.hidden,
+.tablet-hidden {
+  display: none !important;
+}
+.desktop-only,
+.small-screen-hidden {
+  display: none;
+}
+nav {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  z-index: 100;
+  width: calc(100% - 3.5rem);
+}
+.first-word {
+  font-family: "Oswald", sans-serif !important;
+  font-size: 1.875rem;
+  letter-spacing: 0.15rem;
+}
+
+.second-word {
+  position: relative;
+  font-family: "Cormorant", serif !important;
+  font-style: italic;
+  font-size: 2.375rem;
+  letter-spacing: 0.15rem;
+  font-weight: lighter;
+  z-index: 10;
+  background: transparent;
+}
+.navigation a,
+.menu-icon,
+.prof-icon-wrapper ion-icon,
+.prof-icon-wrapper i {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 2rem;
+  height: 0.1rem;
+  margin: 0.7rem 0;
+  border-radius: 50%;
+  transition: 0.5s;
+  background-color: #ffffff;
+}
+.change.menu-icon .bar1 {
+  transform: translate(0, 0.8rem) rotate(-45deg);
+}
+
+.change.menu-icon .bar2 {
+  opacity: 0;
+}
+
+.change.menu-icon .bar3 {
+  transform: translate(0, -0.8rem) rotate(45deg);
+}
+.burger-menu {
+  padding: 4rem 2rem;
+}
+.navigation {
+  position: relative;
+  width: 100% !important;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+.navigation li {
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+}
+
+.navigation li:first-of-type {
+  border-top: solid 0.1rem #ffffff;
+}
+.burger-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 7rem;
+  padding-left: 0;
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.5rem;
+}
+
+.burger-dropdown ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start !important;
+  width: 100% !important;
+  padding-top: 1rem;
+}
+.burger-dropdown:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.burger-dropdown ion-icon {
+  transition: 0.3s;
+}
+.burger-dropdown li {
+  font-size: 1rem;
+  width: 100%;
+}
+.burger-dropdown li {
+  padding-left: 0;
+}
+.burger-dropdown li:before {
+  content: "\2022";
+  color: #ff3d00;
+  padding-right: 1rem;
+}
+.burger-dropdown ul li:last-of-type {
+  padding-bottom: 0 !important;
+  border: none;
+}
+.burger-menu .colored {
+  border-bottom: solid 0.1rem #ff3d00;
+}
+.active {
+  background: linear-gradient(#1d1d1d 45%, #0f0f0f) !important;
+}
+.active a {
+  color: #ff3d00 !important;
+}
+
+.image-container {
+  padding: 0 2rem;
+  text-align: center;
+  height: 50em;
+  background-image: url(../Images/Zimka-landing.jpg);
+  background-position: 30% 10%;
+  background-size: cover;
+}
+.prof-icon-wrapper {
+  position: relative;
+  flex-direction: column;
+  gap: 1.5rem;
+  top: 40rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  background-color: transparent;
+}
+.prof-icon-wrapper ion-icon:hover,
+.prof-icon-wrapper i:hover {
+  color: #ff3d00;
+  transition: 0.5s;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 8rem;
+  font-size: 3rem;
+  margin-left: 1.3rem;
+  background-color: transparent;
+}
+.icons span {
+  position: relative;
+  bottom: 0.7rem;
+  background: transparent;
+}
+.icons span:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.icons span:hover ion-icon {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ff3d00;
+  transition: 0.5s;
+}
+ion-icon,
+i,
+.professions {
+  background-color: transparent;
+}
+
+.fa-spotify {
+  font-size: 2.8rem;
+}
+ion-icon {
+  pointer-events: none;
+}
+
+.concerts {
+  flex-direction: column;
+  padding: 9rem 2rem 3rem 2rem;
+  text-align: center;
+}
+.concerts h3 {
+  max-width: 20rem;
+  z-index: 10;
+  background: transparent;
+}
+.concerts-first {
+  margin-right: 2rem;
+}
+.concerts-second {
+  margin-left: 3rem;
+}
+.concerts span {
+  background: transparent;
+}
+.dates {
+  padding: 5rem 0;
+  overflow: hidden;
+  user-select: none;
+}
+.inner-dates {
+  position: relative;
+}
+.inner-dates :nth-child(2),
+.inner-dates :nth-child(3) {
+  display: none;
+}
+.back,
+.forward {
+  position: relative;
+  font-size: 1rem;
+  z-index: 90;
+}
+.back {
+  right: -0.3rem;
+}
+.forward {
+  left: -0.3rem;
+}
+.back,
+.forward {
+  pointer-events: all;
+}
+.back:hover,
+.forward:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ff3d00 !important;
+  transition: 0.3s;
+}
+.single-concert {
+  position: relative;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  width: 12rem;
+  text-align: center;
+  transition: background-color 0.3s ease-out;
+  background: transparent;
+  z-index: 6;
+}
+.swipe {
+  animation: swipe 1s forwards;
+}
+@keyframes swipe {
+  from {
+    opacity: 0;
+    left: var(--direction);
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+.single-concert p {
+  width: 12rem;
+  word-wrap: break-word;
+  background: transparent;
+}
+
+.date {
+  font-weight: bold;
+  font-size: 2.3rem !important;
+}
+.concert-name {
+  display: block !important;
+  border: none !important;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem !important;
+  letter-spacing: 0.06rem;
+}
+.concert-place {
+  display: block !important;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem !important;
+}
+
+.bio-image {
+  width: 100vw;
+  height: 30rem;
+  background-image: url(../Images/Brief-bio.jpg);
+  background-position: 0 65%;
+  background-size: cover;
+}
+section h3 {
+  padding: 3rem 0 0.8rem 2rem;
+}
+section p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
+  padding: 0 1rem;
+  line-height: 2rem;
+}
+.more-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  margin-left: 1.9rem;
+}
+.more-info .second-word {
+  overflow: hidden;
+  margin-left: 3.5rem;
+}
+.overlap {
+  position: relative;
+  top: 0.2rem;
+}
+.arrow,
+.title-arrow {
+  position: relative;
+  bottom: 1rem;
+  right: 4.5rem;
+  width: 5rem;
+  height: 5rem;
+  border: solid 0.3rem #ff3d00;
+  border-radius: 50%;
+}
+a .arrow {
+  right: 0.5rem;
+}
+a,
+.arrow div {
+  background: transparent;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.arrow:hover .hidden-description {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  opacity: 1;
+  transition: 0.3s;
+}
+.arrow:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.title-arrow {
+  bottom: 2.1rem;
+  left: 18.2rem;
+  z-index: 1;
+}
+
+.arrow ion-icon,
+.title-arrow ion-icon {
+  position: relative;
+  left: 0.45rem;
+  top: 0.45rem;
+  font-size: 4rem;
+  transform: rotate(-45deg);
+}
+.title-arrow ion-icon {
+  transform: rotate(-135deg);
+  left: 0.05rem;
+}
+.hidden-description {
+  opacity: 0;
+  line-height: 1.4rem;
+  position: relative;
+  left: 5.3rem;
+  bottom: 5rem;
+  background: transparent;
+}
+.hidden-description span {
+  background: transparent;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.hidden-description .second-word {
+  margin-left: 1.3rem;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.title-arrow:hover .hidden-description {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  opacity: 1;
+  transition: 0.3s;
+}
+.title-arrow:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: calc(145px + 20vw);
+  padding: 5rem 0 0 0;
+  overflow: hidden;
+}
+.inner-carousel {
+  position: relative;
+}
+.inner-carousel:hover {
+  cursor: url(../Images/chevron-back-circle-outline.svg), auto;
+}
+.inner-carousel-forward:hover {
+  cursor: url(../Images/chevron-forward-circle-outline.svg), auto;
+}
+.record {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+
+.main-record img {
+  width: calc(129px + 20vw);
+  height: calc(129px + 20vw);
+  max-width: 26.5rem;
+  max-height: 26.5rem;
+  padding: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.previous-records img,
+.next-records img {
+  width: calc(39px + 20vw);
+  height: calc(39px + 20vw);
+  max-width: 13.5rem;
+  max-height: 13.5rem;
+  padding: 1rem;
+  filter: grayscale(100%);
+  pointer-events: none;
+  user-select: none;
+}
+.description {
+  text-align: start;
+  font-family: "Open Sans", sans-serif;
+  width: calc(129px + 20vw);
+  max-width: 26.5rem;
+  padding-bottom: 5rem;
+  padding-top: 1rem;
+}
+.description .first-word {
+  font-size: 1.1rem;
+}
+.description .second-word {
+  font-size: 1.375rem;
+}
+.description p {
+  padding-bottom: 0.3rem;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 4rem;
+}
+.contact .centered {
+  flex-direction: column;
+}
+
+.contact h4,
+.contact h4 span {
+  z-index: 2;
+  background: transparent;
+}
+
+.contact:before {
+  position: relative;
+  content: "";
+  width: 4rem;
+  height: 4rem;
+  background-color: #ff3d00;
+  border-radius: 50%;
+  top: 3.5rem;
+  right: 0.89rem;
+  z-index: 1;
+}
+.contact input,
+.contact input::placeholder,
+textarea,
+textarea::placeholder {
+  font-size: 1rem;
+  color: #d8d8d8;
+  font-family: "Open Sans", sans-serif;
+}
+input {
+  margin: 4rem 1rem 4rem 1rem;
+  max-width: 28rem;
+  width: 75vw;
+  border: 0;
+  padding: 1rem;
+  border-bottom: solid 0.1rem #d9d9d9;
+  outline: none;
+}
+input:hover {
+  border-color: #ff3d00;
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+textarea {
+  width: 85vw;
+  max-width: 42.125rem;
+  font-size: 19px;
+  border: none;
+  background-attachment: local;
+  background-image: linear-gradient(
+      to right,
+      #1d1d1d,
+      #1d1d1d 0.625rem,
+      transparent 0.625rem
+    ),
+    linear-gradient(to left, #1d1d1d, #1d1d1d 0.625rem, transparent 0.625rem),
+    repeating-linear-gradient(
+      #1d1d1d,
+      #1d1d1d 2.25rem,
+      #ccc 2.25rem,
+      #ccc 2.375rem
+    );
+  line-height: 2.375rem;
+  padding: 0.3958rem 0.625rem;
+  resize: none;
+  outline: none;
+  transition: background-image 0.5s ease;
+}
+
+textarea::placeholder {
+  position: relative;
+  bottom: 0.3rem;
+  left: 0.3rem;
+}
+textarea:hover {
+  background-image: linear-gradient(
+      to right,
+      #1d1d1d,
+      #1d1d1d 0.625rem,
+      transparent 0.625rem
+    ),
+    linear-gradient(to left, #1d1d1d, #1d1d1d 0.625rem, transparent 0.625rem),
+    repeating-linear-gradient(
+      #1d1d1d,
+      #1d1d1d 2.25rem,
+      #ff3d00 2.25rem,
+      #ff3d00 2.375rem
+    );
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+button {
+  font-family: "Open Sans", sans-serif;
+  border: solid 0.1rem #ff3d00;
+
+  border-radius: 1.2rem;
+  padding: 0.5rem 3rem;
+  margin: 3.5rem 1.5rem 1.5rem 1.5rem;
+}
+form button {
+  height: 2.4rem;
+  width: 8.9rem;
+}
+.wrongInput {
+  position: relative;
+  animation: wrong 0.5s forwards;
+}
+@keyframes wrong {
+  0% {
+    left: 0;
+  }
+  25% {
+    left: 0.2rem;
+  }
+  50% {
+    left: 0;
+  }
+  75% {
+    left: -0.2rem;
+  }
+  100% {
+    left: 0;
+  }
+}
+.sent-out {
+  animation: sent 1.5s forwards;
+}
+@keyframes sent {
+  from {
+    background: #1d1d1d;
+  }
+  to {
+    background: #ff3d00;
+  }
+}
+.sent-out::before {
+  position: relative;
+  content: "\2713";
+  font-size: 1.5rem;
+  display: inline-block;
+  color: #1d1d1d;
+  bottom: 0.45rem;
+}
+button:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ff3d00 !important;
+  transition: 0.5s;
+}
+footer {
+  flex-direction: column;
+  position: relative;
+  top: 6.5rem;
+}
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+  z-index: 300;
+}
+.footer-icon {
+  padding: 0 0.5rem;
+}
+.footer-icon:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.footer-icons ion-icon[name="logo-facebook"] {
+  font-size: 3.2rem;
+}
+footer span:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+footer span:hover ion-icon {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ffffff;
+  transition: 0.5s;
+}
+.youtube {
+  position: relative;
+  left: 0.15rem;
+  top: 0.65rem;
+  font-size: 1.5rem;
+  color: #1d1d1d !important;
+  z-index: 2;
+}
+.logo-youtube {
+  position: relative;
+  width: 2.8rem;
+  height: 2.8rem;
+  left: 0.8rem;
+  z-index: 1;
+  background-color: #ff3d00;
+  border-radius: 50%;
+}
+.logo-youtube:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  background-color: #ffffff;
+  transition: 0.5s;
+}
+footer p {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.078rem;
+}
+.button-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  z-index: 200;
+  background: transparent;
+}
+.up-button {
+  border: none;
+  padding: 0;
+  font-size: 3rem;
+  --ionicon-stroke-width: 0.6rem;
+  z-index: 200;
+}
+/*made for Bio.html */
+
+.bio-page-image {
+  background-image: url(../Images/Maciej-bio-smaller.jpg);
+  background-size: cover;
+  height: 40rem;
+  background-position: 0% 25%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+
+main h1,
+h1 span {
+  background: transparent;
+  z-index: 12;
+}
+
+main::before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 5rem;
+  height: 5rem;
+  top: 4.5rem;
+  right: 2.2rem;
+  border: solid 0.1rem #ff3d00;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+main p {
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  padding-top: 2rem;
+  line-height: 2rem;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+ul {
+  font-family: "Open Sans", sans-serif;
+  padding-left: 1rem;
+  padding-top: 2rem;
+  list-style: none;
+}
+
+.bio-list li::before {
+  position: relative;
+  right: 1rem;
+  top: 1.8rem;
+  content: "/";
+  color: #ff3d00;
+}
+main h5 {
+  padding: 5rem 0;
+}
+main h5 span {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+main div.arrow {
+  width: 3rem;
+  height: 3rem;
+  left: 9.6rem;
+  bottom: 7rem;
+  background: transparent;
+  border-width: 0.2rem;
+}
+
+main div.arrow ion-icon {
+  font-size: 2.2rem;
+}
+/*made for koncerty.html*/
+.title,
+.middle-title {
+  text-align: center;
+  padding: 11rem 2rem 3rem 2rem;
+  flex-wrap: wrap;
+}
+
+h1 .first-word {
+  font-size: 2.65rem;
+}
+h1 .second-word {
+  font-size: 3.4rem;
+}
+.schedule,
+.cd,
+.compositions,
+.downloads {
+  padding: 2rem;
+}
+.schedule :nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.schedule p {
+  display: flex;
+  align-items: start;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  padding: 2rem 0 2rem 0;
+}
+.address {
+  display: flex;
+  flex-direction: column;
+}
+.overscored {
+  border-top: solid 0.1rem #ffffff;
+}
+.underscored {
+  border-bottom: solid 0.1rem #ffffff;
+}
+.middle-title {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.date-buttons button {
+  font-weight: bold;
+  margin-bottom: 3.5rem;
+}
+
+.main-year {
+  color: #0f0f0f !important;
+  background-color: #ff3d00;
+}
+.main-year:hover {
+  color: #ffffff !important;
+}
+
+.archive {
+  display: grid;
+  justify-content: center;
+
+  font-family: "Open Sans", sans-serif;
+  padding: 4rem 2rem 9rem 2rem;
+  line-height: 1.5rem;
+}
+.archive-grid {
+  width: 80vw;
+}
+.archive .first-word {
+  flex-direction: column;
+  padding-right: 2rem;
+  line-height: 3rem;
+}
+.archive .underscored {
+  justify-content: start;
+  padding: 1.5rem 0;
+}
+.archive .underscored:first-of-type {
+  border-top: solid 0.1rem #ffffff;
+}
+
+/* made for dyskografia.html*/
+
+.one-word-title .first-word {
+  position: relative;
+  left: 0.2rem;
+}
+.one-word-title .second-word {
+  position: relative;
+  right: 0.2rem;
+  top: 0.06rem;
+}
+.cd {
+  flex-direction: column;
+}
+.cd-description {
+  max-width: 40rem;
+}
+.cd-description img {
+  max-width: 100%;
+}
+.info h5 {
+  padding: 1.5rem 0 0.5rem 0;
+}
+.cd-description p:first-of-type {
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.125rem;
+  color: #d8d8d8;
+  padding-bottom: 3rem;
+}
+.cd-description button {
+  width: 13rem;
+  margin: 0 0 3rem 0;
+}
+.cd-description ul {
+  padding: 0 0 4rem 0;
+}
+.cd-description li {
+  padding-bottom: 0.5rem;
+}
+ul p {
+  color: #ffffff !important;
+  padding: 0 0 0.5rem 0 !important;
+  font-size: 1rem !important;
+}
+.tracklist {
+  font-size: 1.125rem;
+  font-family: "Open-sans", sans-serif;
+}
+.hint {
+  text-align: center;
+  font-family: "Open-sans", sans-serif;
+  color: #ff3d00 !important;
+  padding-bottom: 0.8rem !important;
+}
+
+.tracklist .second-word {
+  font-size: 3.5rem;
+  padding-right: 1rem;
+}
+.tracklist .underscored {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+.tracklist .underscored:first-of-type {
+  border-top: solid 0.1rem #ffffff;
+}
+
+.track-number {
+  position: relative;
+  bottom: 0.4rem;
+}
+
+.cd-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 13rem;
+}
+.fa-itunes {
+  font-size: 3rem;
+}
+.fa-itunes:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.youtube-music {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-left: 0.5rem;
+}
+.youtube-music svg {
+  color: #ff3d00;
+}
+.youtube-music svg:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.records-carousel .previous-records,
+.records-carousel .next-records {
+  position: relative;
+  top: 2.5rem;
+}
+
+/*made for kompozycje.html*/
+
+.composition {
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+.composition p {
+  padding: 1.2rem 0;
+}
+.compositions .composition:first-of-type {
+  border-top: solid 0.1rem #ffffff;
+}
+
+.prize {
+  color: #d8d8d8;
+  font-size: 1rem;
+}
+/*made for do-pobrania.html */
+
+.download-title {
+  flex-direction: column;
+}
+.download-title .arrow {
+  left: 8.8rem;
+  bottom: 2rem;
+  border-width: 0.2rem;
+  width: 3rem;
+  height: 3rem;
+}
+.download-title ion-icon {
+  position: relative;
+  font-size: 2.2rem;
+  left: 0.05rem;
+}
+.file {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.3rem;
+  padding: 2rem 0.5rem;
+}
+.file:first-of-type {
+  border-top: solid 0.1rem #ffffff;
+}
+.file:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+}
+.file:hover.file ion-icon {
+  border: solid 0.1rem #ffffff;
+  border-radius: 50%;
+}
+.no-up-arrow {
+  padding-bottom: 2rem;
+}
+/*made for recenzje.html*/
+.review {
+  width: 65vw;
+  padding: 2rem 1rem;
+}
+.review p {
+  font-family: "Open-sans", sans-serif;
+  line-height: 1.8rem;
+  padding: 1rem 0;
+}
+.review span {
+  color: #d8d8d8;
+}
+.down-arrow ion-icon {
+  font-size: 2rem;
+}
+.down-arrow ion-icon:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ff3d00;
+}
+.down-arrow {
+  display: flex;
+  border: none;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  transition: 0.3s;
+}
+.transformed {
+  transform: rotate(180deg);
+}
+.stars ion-icon {
+  color: #ffffff;
+  font-size: 1rem;
+  padding-right: 0.1rem;
+}
+
+/*made for zespoly-komercyjne.html*/
+
+.band-image,
+.band-image-2,
+.band-image-3 {
+  background-size: cover;
+  height: 40rem;
+  background-position: 20% 50%;
+  background-attachment: fixed;
+  filter: grayscale(100%);
+}
+.band-image {
+  background-image: url(../Images/ZImkaOchwat.jpg);
+}
+.band-image-2 {
+  background-image: url(../Images/duoardente-band.jpg);
+  background-position: 55% 20%;
+}
+.band-image-3 {
+  background-image: url(../Images/Quasi-una-fantasia-band.png);
+  background-position: 45% 30%;
+}
+.band-names .first-word {
+  font-size: 2.3rem;
+}
+.band-names .second-word {
+  font-size: 3rem;
+}
+main .underscored:last-of-type {
+  padding-bottom: 4rem;
+  border-color: #ff3d00;
+}
+.other-bands {
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.other-bands .centered:hover span {
+  color: #ff3d00 !important;
+  transition: 0.3s;
+}
+.other-bands .centered:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  border-bottom: solid 0.1rem #ff3d00;
+}
+.other-bands span.first-word {
+  font-size: 1.9rem;
+}
+.other-bands span.second-word {
+  font-size: 2.4rem;
+}
+.other-bands span {
+  pointer-events: none;
+}
+.break {
+  padding-right: 0.4rem;
+}
+.other-bands .centered {
+  padding: 1rem 0.3rem;
+}
+.duo-ardente-title {
+  position: relative;
+  top: 0.09rem;
+}
+a,
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/*meeeeeeeeeeeeeeeeeeeeeeeeeeeeeddddddddddddddddddddddddddia*/
+@media (max-width: 290px) {
+  nav .first-word {
+    font-size: 1.5rem;
+  }
+  nav .second-word {
+    font-size: 1.9rem;
+  }
+  .one-word-title .first-word {
+    font-size: 1.5rem;
+  }
+  .one-word-title .second-word {
+    font-size: 2.1rem;
+  }
+
+  .back {
+    left: 0.3rem;
+  }
+  .forward {
+    left: -0.3rem;
+  }
+
+  .download-title .arrow {
+    left: 9.9rem;
+    bottom: 1.3rem;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+  .download-title ion-icon {
+    position: relative;
+    font-size: 1.5rem;
+    left: 0.01rem;
+  }
+  .circle {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  .band-names .first-word {
+    font-size: 1.4rem;
+  }
+  .band-names .second-word {
+    font-size: 2rem;
+  }
+  .other-bands span.first-word {
+    font-size: 1.2rem;
+  }
+  .other-bands span.second-word {
+    font-size: 1.6rem;
+  }
+  .one-word-title .first-word {
+    font-size: 1.9rem !important;
+  }
+  .one-word-title .second-word {
+    font-size: 2.5rem !important;
+  }
+}
+@media (max-width: 380px) {
+  nav .first-word {
+    font-size: 1.7rem;
+  }
+  nav .second-word {
+    font-size: 2.1rem;
+  }
+
+  .concerts p {
+    font-size: 2.3rem;
+  }
+  .one-word-title .first-word,
+  h1 .first-word {
+    font-size: 2rem;
+  }
+  .one-word-title .second-word,
+  h1 .second-word {
+    font-size: 2.6rem;
+  }
+  .info h5 .first-word {
+    font-size: 1.3rem;
+  }
+  .info h5 .second-word {
+    font-size: 1.6rem;
+  }
+
+  main::before {
+    top: 4rem;
+    right: 2.8rem;
+  }
+  .download-title .arrow {
+    left: 6.5rem;
+    bottom: 1.5rem;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+  .download-title ion-icon {
+    position: relative;
+    font-size: 1.8rem;
+    left: 0.05rem;
+  }
+  .circle {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+  .band-names .first-word {
+    font-size: 1.6rem;
+  }
+  .band-names .second-word {
+    font-size: 2.2rem;
+  }
+  .other-bands span.first-word {
+    font-size: 1.4rem;
+  }
+  .other-bands span.second-word {
+    font-size: 1.8rem;
+  }
+  .up-button {
+    position: relative;
+    top: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .tablet-hidden {
+    display: block !important;
+  }
+
+  .concerts h3 {
+    max-width: none;
+  }
+  .concerts-first {
+    margin-right: 0;
+    font-size: 3.125rem;
+  }
+  .concerts-second {
+    margin-left: 0;
+    font-size: 3.9375rem;
+  }
+  .inner-dates :nth-child(2) {
+    display: flex;
+  }
+  .date-back {
+    left: 2rem;
+  }
+
+  .date-forward {
+    left: -2rem;
+  }
+  .date-buttons .back {
+    right: 1rem;
+  }
+  .date-buttons .forward {
+    left: 1rem;
+  }
+  .back,
+  .forward,
+  .date-buttons ion-icon {
+    font-size: 2rem;
+  }
+  .single-concert {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .tablet-bio {
+    display: flex;
+    align-items: center;
+    padding-right: 16vw;
+  }
+  .tablet-bio h3,
+  .tablet-bio p {
+    padding-left: 4rem;
+  }
+  .title h3 .first-word {
+    font-size: 3.125rem;
+  }
+  .title h3 .second-word {
+    font-size: 4rem;
+  }
+  .description .first-word {
+    font-size: 1.5rem;
+  }
+  .description .second-word {
+    font-size: 2rem;
+  }
+  .contact h4 {
+    margin-top: 2rem;
+  }
+  .contact .first-word {
+    font-size: 3rem;
+  }
+  .contact .second-word {
+    font-size: 3.9rem;
+  }
+  .contact:before {
+    top: 7rem;
+    width: 5rem;
+    height: 5rem;
+  }
+  .contact h4::after {
+    position: relative;
+    display: block;
+    content: "";
+    width: 10rem;
+    height: 10rem;
+    bottom: 7.5rem;
+    right: 1rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  input {
+    margin-top: 0;
+  }
+
+  .text-circle::before {
+    position: absolute;
+    content: "";
+    width: 7rem;
+    height: 7rem;
+    top: 2rem;
+    left: 21rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .downloads {
+    padding-left: calc(3rem + 15vw);
+    padding-right: calc(3rem + 15vw);
+  }
+}
+@media (min-width: 1200px) {
+  .desktop-hidden {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+  .prof-icon-wrapper {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1d1d1d;
+    width: 23rem;
+    top: 26rem;
+    left: 55vw;
+  }
+  .prof-icon-wrapper ion-icon,
+  .prof-icon-wrapper i {
+    color: #0f0f0f;
+  }
+  .back,
+  .forward {
+    left: 0;
+  }
+  .single-concert:hover {
+    background-color: #191919;
+    box-shadow: inset 0.5rem 0.5rem 3rem 0.5rem #1d1d1d;
+  }
+
+  .inner-dates :nth-child(2) {
+    border-left: solid 0.1rem #d8d8d8;
+    border-right: solid 0.1rem #d8d8d8;
+  }
+  .inner-dates :nth-child(3) {
+    display: flex;
+  }
+  .bio {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(4, auto);
+    row-gap: 3rem;
+    column-gap: 2rem;
+  }
+  .bio-image {
+    margin-left: 3rem;
+    width: 28rem;
+    height: 39rem;
+    grid-area: 1 / 1 / 4 / 3;
+  }
+  .tablet-bio {
+    max-width: 41rem;
+    padding-right: 7rem;
+    grid-area: 1/ 3 / 4 / 7;
+  }
+  .bio-image-2 {
+    width: 33rem;
+    height: 15rem;
+    grid-area: 4/ 1 / 5 / 4;
+    background-image: url(../Images/Brief-bio-2.jpg);
+    background-size: cover;
+    background-position: 0% 100%;
+  }
+  .bio-image-3 {
+    width: 47vw;
+    margin-left: 3.9rem;
+    height: 27.6875rem;
+    margin-top: 2rem;
+    grid-area: 3 / 3 / 5/ 6;
+    background-image: url(../Images/Brief-bio-3.jpg);
+    background-size: 55vw auto;
+    background-position: 160% 40%;
+  }
+  .bio-image-3 .arrow {
+    left: 4rem;
+    top: 5rem;
+    background: transparent;
+  }
+  .previous-records:hover img,
+  .next-records:hover img {
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
+    border-radius: 10%;
+    box-shadow: inset 1px 5px 5px, inset -1px -5px 5px;
+    filter: grayscale(0%);
+    transition: 0.5s ease-out;
+  }
+  .desktop-schedule {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 5rem 0;
+  }
+  .schedule {
+    padding: 4rem 0;
+    max-width: 50%;
+  }
+
+  .placeholder {
+    width: 35%;
+    min-height: 50%;
+    position: relative;
+    right: 8rem;
+  }
+  .placeholder .circle {
+    position: relative;
+    left: 7rem;
+    top: 5rem;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-color: #ff3d00;
+  }
+  .placeholder .circle::after {
+    display: block;
+    content: "";
+    position: relative;
+    left: 5rem;
+    top: 7rem;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    border: solid 0.1rem #ff3d00;
+  }
+  .archive {
+    padding: 2rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+  }
+  .archive .underscored {
+    margin: 0 1rem;
+    padding-left: 1rem;
+  }
+  .archive .grid-2 {
+    border-top: solid 0.1rem #ffffff;
+  }
+  .archive-grid {
+    width: 40vw;
+  }
+  .text-image-container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .text-image-container main {
+    padding: 5rem 6rem;
+  }
+  .text-image-container main:before {
+    width: 7rem;
+    height: 7rem;
+    top: 5.5rem;
+    right: 3.5rem;
+  }
+  .text-image-container .bio-page-image {
+    margin-bottom: 12rem;
+    top: 0;
+    position: sticky;
+    height: 100vh;
+    width: 100vw;
+    max-width: 50rem;
+    background-image: url(../Images/Maciej-bio.jpg);
+    background-position: 0% 100%;
+    background-size: cover;
+  }
+
+  .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .details img {
+    max-width: 34.5rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+  }
+  .cd-description {
+    max-width: none;
+  }
+  .tracklist .underscored {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .tracklist .underscored:hover {
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  }
+  .tracklist .underscored:hover .track-number::before {
+    content: "POSŁUCHAJ NA SPOTIFY";
+    position: relative;
+    font-weight: bold;
+    color: #ffffff;
+    right: 2rem;
+    bottom: 0.3rem;
+    font-size: 1.2rem;
+    border: solid 0.1rem #ff3d00;
+    border-radius: 2rem;
+    padding: 0.5rem;
+  }
+  .tracklist .underscored:hover .track-number {
+    color: #ff3d00 !important;
+  }
+  .compositions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .compositions-images {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+  .first-image {
+    background-image: url(../Images/Compositions-image.jpg);
+    width: 22.1875rem;
+    height: 27.5rem;
+    background-size: cover;
+    background-position: 50% 10%;
+  }
+  .second-image {
+    background-image: url(../Images/Compositions-image-2.jpg);
+    width: 22.1875rem;
+    height: 30.5rem;
+    background-position: 50% 70%;
+    background-size: cover;
+  }
+  .compositions {
+    height: 55rem;
+    overflow: scroll;
+  }
+  .compositions::-webkit-scrollbar {
+    display: none;
+  }
+  .composition {
+    font-size: 1.6rem;
+  }
+  .band-image,
+  .band-image-2,
+  .band-image-3 {
+    margin-bottom: 8rem;
+    top: 0;
+    position: sticky;
+    height: 100vh;
+    width: 100vw;
+    max-width: 50rem;
+    max-height: 72rem;
+    background-position: 45% 0%;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+  .other-bands {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .desktop-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-image {
+    position: relative;
+    background-image: url(../Images/Contact-image.jpg);
+    height: 100vh;
+    width: 100vw;
+    max-width: 60%;
+    background-size: cover;
+    background-position: 20% 30%;
+  }
+}
+@media (min-width: 1400px) {
+  .wide-screen-hidden {
+    display: none;
+  }
+  .small-screen-hidden {
+    display: flex;
+  }
+  .menu {
+    margin-bottom: 1.5rem;
+  }
+  .menu a:hover {
+    color: #ff3d00 !important;
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
+    border-bottom: solid 0.1rem #ff3d00;
+    transition: color 0.3s;
+  }
+  .menu li {
+    font-family: "Open-sans", sans-serif;
+    padding: 0 1rem;
+  }
+  .menu-active {
+    color: #ff3d00 !important;
+  }
+  .dropdown:hover .menu-bands {
+    display: block;
+  }
+  .menu-bands {
+    padding-left: 0;
+    display: none;
+    position: absolute;
+    right: 21.3rem;
+    top: 4rem;
+  }
+
+  .menu-bands li {
+    padding-bottom: 1.2rem;
+  }
+  .menu-bands li:hover {
+    color: #ff3d00;
+    transition: 0.5s;
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  }
+}

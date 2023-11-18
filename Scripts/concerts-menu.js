@@ -20,31 +20,106 @@ class Concert {
 
 let allConcerts = [
   new Concert(
-    "2023.12.19",
+    "2024.08.19",
     "Concert for a poems",
     "Duo Ardente",
-    "Cracow",
+    "Kraków",
     "Kościół pw. św. Katarzyny Aleksandryjskiej",
     "Ul. Augustiańska 7",
     "17:00",
-    "Maciej Zimka | Mikołaj Makusiak | Wiesław Ochwat | Ktoś tam"
+    "Maciej Zimka | Mikołaj Makusiak | Wiesław Ochwat"
   ),
-  new Concert("1992.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("2023.04.25", "SDSAD", "sAd", "myślenice"),
-  new Concert("2024.11.12", "Concert v3", "SOAD", "Berlin"),
-  new Concert("2027.12.02", "XXXX", "Duo", "Somewhere"),
-  new Concert("2023.01.26", "SDSAD ", "sAd", "myslenice"),
-  new Concert("2025.12.26", "SDSssdsdAD", "svbgh", "fdge"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-  new Concert("1975.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("1980.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("2000.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("1992.12.21", "Concert v2", "Quasi una Fantasia", "Warsaw"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-  new Concert("2030.11.26", "asdasd", "sdffd", "ghhge"),
-  new Concert("2033.11.26", "asdasd", "sdffd", "ghhge"),
+  new Concert(
+    "2022.01.04",
+    "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
+    "Quasi una Fantasia",
+    "Taranto (Włochy)",
+    "Kościół San Francesca di Paola"
+  ),
+  new Concert(
+    "2022.01.05",
+    "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
+    "Quasi una Fantasia",
+    "Conversano (Włochy)",
+    "Pinacotca Civica"
+  ),
+  new Concert(
+    "2022.03.05",
+    "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
+    "Quasi una Fantasia",
+    "Beausoleil (Francja)",
+    "Centre Culturel Prince Jacques"
+  ),
+  new Concert(
+    "2022.03.13",
+    "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+    "Duo",
+    "Warszawa",
+    "Dom Polonii"
+  ),
+  new Concert("2023.01.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  "Duo",
+  "Warszawa",
+  "Dom Polonii"),
+  new Concert("2022.12.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  "Duo",
+  "Warszawa",
+  "Dom Polonii"),
+  new Concert("2030.11.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  "Duo",
+  "Warszawa",
+  "Dom Polonii"),
+  new Concert(
+    "2024.02.04",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Sopot",
+    "Filharmonia Sopocka",
+    "ul. Rzemieślnicza 2",
+    "20:45",
+    "Maciej Zimka"
+  ),
+  new Concert(
+    "2023.11.17",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Katowice",
+    "NOSPR"
+  ),
+  new Concert(
+    "2023.11.11",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Kraków",
+    "Filharmonia"
+  ),
+  new Concert(
+    "2023.09.21",
+    "Recital Magdaleny Cornelius-Kulig: mezzosopran, Macieja Zimki: akordeon",
+    "Quasi una Fantasia",
+    "Catania (Włochy)"
+  ),
+  new Concert("2024.05.21",  "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  "Duo Ardente",
+  "Warszawa",
+  "Dom Polonii"),
+  new Concert("2024.05.22",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  "Maciej Zimka",
+  "Katowice",
+  "Filharmonia"),
+  new Concert("2024.06.11",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  "Maciej Zimka",
+  "Kraków",
+  "Filharmonia"),
+  new Concert("2024.06.12",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  "Maciej Zimka",
+  "Katowice",
+  "Filharmonia"),
+  new Concert( "2024.05.05",
+  "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
+  "Quasi una Fantasia",
+  "Beausoleil (Francja)",
+  "Centre Culturel Prince Jacques"),
 ];
 
 let concerts = allConcerts
@@ -206,9 +281,8 @@ const datesTouch = (evt) => {
       hidingButtonsHandler();
       return (concertsContainer.style.right = "0");
     }
-    if(slideNumber === 0){
+    if (slideNumber === 0) {
       return hidingButtonsHandler();
-      
     }
 
     datesOnTouchMoveHandler();
