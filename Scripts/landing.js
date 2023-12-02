@@ -31,7 +31,7 @@ class Record {
 
 let records = [
   new Record(
-    "../Images/Duo-ardente.jpg",
+    "Images/Duo-ardente.jpg",
     "DuoArdente",
     "DUO",
     "ARDENTE",
@@ -39,7 +39,7 @@ let records = [
     "wyd. Independent Digital 2020"
   ),
   new Record(
-    "../Images/Out-of-the-circle.jpg",
+    "Images/Out-of-the-circle.jpg",
     "OutOfTheCircle",
     "OUT OF THE",
     "CIRCLE",
@@ -47,7 +47,7 @@ let records = [
     "wyd. Independent Digital 2021"
   ),
   new Record(
-    "../Images/traum-vogel.jpg",
+    "Images/traum-vogel.jpg",
     "TraumVogel",
     "TRAUM",
     "VOGEL",
@@ -55,7 +55,7 @@ let records = [
     "wyd. Independent Digital 2023"
   ),
   new Record(
-    "../Images/Accochameleon.jpg",
+    "Images/Accochameleon.jpg",
     "Accochameleon",
     "ACCO",
     "CHAMELEON",
@@ -63,7 +63,7 @@ let records = [
     "wyd. Independent Digital 2015"
   ),
   new Record(
-    "../Images/Quasi-una-fantasia.jpg",
+    "Images/Quasi-una-fantasia.jpg",
     "QuasiUnaFantasia",
     "QUASI UNA",
     "FANTASIA",
