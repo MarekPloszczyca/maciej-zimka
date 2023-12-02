@@ -33,8 +33,8 @@ let records = [
     "DuoArdente",
     "DUO",
     "ARDENTE",
-    "1020",
-    "wyd. Independent Digital 1020",
+    "2020",
+    "wyd. Independent Digital 2020",
     false
   ),
   new Record(
@@ -42,8 +42,8 @@ let records = [
     "OutOfTheCircle",
     "OUT OF THE",
     "CIRCLE",
-    "2026",
-    "wyd. Independent Digital 2026",
+    "2021",
+    "wyd. Independent Digital 2021",
     false
   ),
   new Record(
@@ -51,8 +51,8 @@ let records = [
     "TraumVogel",
     "TRAUM",
     "VOGEL",
-    "2023",
-    "wyd. Independent Digital 2023",
+    "2018",
+    "wyd. Independent Digital 2018",
     true
   ),
   new Record(
@@ -69,8 +69,8 @@ let records = [
     "QuasiUnaFantasia",
     "QUASI UNA",
     "FANTASIA",
-    "2024",
-    "wyd. Independent Digital 2024",
+    "2015",
+    "wyd. Independent Digital 2015",
     false
   ),
 ];

@@ -24,8 +24,9 @@ const closestConcertHandler = () => {
     4: "Czwartek",
     5: "Piątek",
     6: "Sobota",
-    7: "Niedziela",
+    0: "Niedziela",
   };
+  console.log(date)
   moreInfo[0].textContent = closest.date;
   day.textContent = dayOfWeek[date].toUpperCase();
   moreInfo[2].textContent = closest.title;

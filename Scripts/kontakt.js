@@ -1,6 +1,5 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 
-
 const mailForm = document.querySelector("form");
 const sendMailButton = mailForm.querySelector("button");
 
@@ -19,24 +18,29 @@ const sendMail = () => {
   };
   const serviceID = "service_oyz906t";
   const templateID = "template_x2slm9n";
+  if (!validateEmail(mailData.email) && mailData.message.trim() == "") {
+    sendMailButton.classList.add("wrongInput");
+    return setTimeout(() => {
+      sendMailButton.classList.remove("wrongInput");
+    }, 500);
+  }
   if (validateEmail(mailData.email) && mailData.message.trim() !== "") {
-  emailjs
-  .send(serviceID, templateID, mailData)
-  .then(() => {
-  document.querySelector(`input[type="email"]`).value = "";
-  document.querySelector("textarea").value = "";
-  sendMailButton.textContent = "";
-  sendMailButton.classList.add("sent-out");
-  })
-  .catch(() => alert("Something went wrong, try again later"));
-};
- return ;
+    emailjs
+      .send(serviceID, templateID, mailData)
+      .then(() => {
+        document.querySelector(`input[type="email"]`).value = "";
+        document.querySelector("textarea").value = "";
+        sendMailButton.textContent = "";
+        sendMailButton.classList.add("sent-out");
+      })
+      .catch(() => alert("Something went wrong, try again later"));
+  }
 };
 
 menuButton.addEventListener("click", toggleMenuHandler);
 mailForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-  sendMailButton.addEventListener("click", sendMail);
- 
-  export { validateEmail, sendMail};
+  event.preventDefault();
+});
+sendMailButton.addEventListener("click", sendMail);
+
+export { validateEmail, sendMail };
