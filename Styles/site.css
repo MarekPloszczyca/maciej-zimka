@@ -254,12 +254,7 @@ ion-icon {
 .forward {
   pointer-events: all;
 }
-.back:hover,
-.forward:hover {
-  cursor: url(../Images/ellipse-outline-hover.svg), auto;
-  color: #ff3d00 !important;
-  transition: 0.3s;
-}
+
 .single-concert {
   position: relative;
   flex-direction: column;
@@ -1382,6 +1377,12 @@ a:visited {
   .inner-dates :nth-child(3) {
     display: flex;
   }
+  .back:hover,
+.forward:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  color: #ff3d00 !important;
+  transition: 0.3s;
+}
   .bio {
     display: grid;
     justify-content: center;
