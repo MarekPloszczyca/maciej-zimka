@@ -6,6 +6,7 @@
   padding: 0;
   background-color: #1d1d1d;
   cursor: url(../Images/ellipse-outline.svg), auto;
+  scroll-behavior: smooth;
 }
 
 .white {
