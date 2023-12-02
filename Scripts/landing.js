@@ -238,7 +238,4 @@ mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 sendMailButton.addEventListener("click", sendMail);
-window.addEventListener("resize", function () {
-  "use strict";
-  window.location.reload();
-});
+

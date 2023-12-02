@@ -318,10 +318,7 @@ concertsContainer.addEventListener("touchmove", datesOnTouchHandler, {
 });
 datesBackButton.addEventListener("click", datesOnClickMoveHandler);
 datesForwardButton.addEventListener("click", datesOnClickMoveHandler);
-window.addEventListener("resize", function () {
-  "use strict";
-  window.location.reload();
-});
+
 
 export {
   allConcerts,

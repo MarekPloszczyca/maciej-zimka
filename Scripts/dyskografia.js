@@ -248,7 +248,4 @@ innerCarousel.addEventListener("touchend", recordsSlideHandler, {
   passive: true,
 });
 recordsLoadHandler();
-window.addEventListener("resize", function () {
-  "use strict";
-  window.location.reload();
-});
+
