@@ -10,7 +10,13 @@
 }
 
 .white {
-  color: #ffffff !important;
+  color: #ffffff;
+}
+
+h2:hover {
+ text-decoration: underline #ff3d00 0.1rem;
+ transition: 0.5s;
+  
 }
 .centered {
   display: flex;
