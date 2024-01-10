@@ -1378,11 +1378,11 @@ a:visited {
     display: flex;
   }
   .back:hover,
-.forward:hover {
-  cursor: url(../Images/ellipse-outline-hover.svg), auto;
-  color: #ff3d00 !important;
-  transition: 0.3s;
-}
+  .forward:hover {
+    cursor: url(../Images/ellipse-outline-hover.svg), auto;
+    color: #ff3d00 !important;
+    transition: 0.3s;
+  }
   .bio {
     display: grid;
     justify-content: center;
@@ -1637,15 +1637,18 @@ a:visited {
   .menu-active {
     color: #ff3d00 !important;
   }
+
   .dropdown:hover .menu-bands {
-    display: block;
+    height: 7rem;
   }
   .menu-bands {
     padding-left: 0;
-    display: none;
+    height: 0;
+    overflow: hidden;
     position: absolute;
     right: 21.3rem;
     top: 4rem;
+    transition: 0.5s;
   }
 
   .menu-bands li {
