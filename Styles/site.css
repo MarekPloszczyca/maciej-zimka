@@ -14,9 +14,8 @@
 }
 
 h2:hover {
- text-decoration: underline #ff3d00 0.1rem;
- transition: 0.5s;
-  
+  text-decoration: underline #ff3d00 0.1rem;
+  transition: 0.5s;
 }
 .centered {
   display: flex;
@@ -1042,6 +1041,16 @@ ul p {
 }
 .transformed {
   transform: rotate(180deg);
+}
+.dropdown-review {
+  max-height: 0;
+  overflow: hidden;
+  transition: 1s;
+}
+.displayed {
+  max-height: 130rem;
+  overflow: hidden;
+  transition: 1s;
 }
 .stars ion-icon {
   color: #ffffff;
