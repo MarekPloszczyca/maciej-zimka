@@ -20,7 +20,7 @@ class Concert {
 
 let allConcerts = [
   new Concert(
-    "2024.08.19",
+    "2024.05.04",
     "Concert for a poems",
     "Duo Ardente",
     "Kraków",
