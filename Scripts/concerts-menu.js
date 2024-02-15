@@ -123,16 +123,8 @@ let allConcerts = [
 ];
 
 let concerts = allConcerts
-  .filter((single) => {
-    return (
-      new Date() < new Date(single.date) ||
-      new Date().toDateString() === new Date(single.date).toDateString()
-    );
-  })
-  .sort((a, b) => {
-    return new Date(a.date).getTime() - new Date(b.date).getTime();
-  });
-  console.log(concerts)
+ 
+  console.log(concerts, allConcerts)
 
 const firstConcert = concerts[0];
 const lastConcert = concerts[concerts.length - 1];
@@ -167,7 +159,7 @@ const hidingButtonsHandler = () => {
 
 const datesLoadHandler = () => {
   for (let i = 0; i < 3; i++) {
-   
+    visibleConcerts[i].children[0].textContent = concerts[i].date;
     visibleConcerts[i].children[1].textContent = concerts[i].title;
     visibleConcerts[i].children[2].textContent = concerts[i].band;
     visibleConcerts[i].children[3].textContent = `- ${concerts[
