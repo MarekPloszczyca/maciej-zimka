@@ -18,13 +18,14 @@ const closestConcertHandler = () => {
   let addressInfo = document.querySelectorAll(".place");
   const date = new Date(concerts[0].date).getDay();
   const dayOfWeek = {
+    0: "Niedziela",
     1: "Poniedziałek",
     2: "Wtorek",
     3: "Środa",
     4: "Czwartek",
     5: "Piątek",
     6: "Sobota",
-    0: "Niedziela",
+  
   };
   moreInfo[0].textContent = closest.date;
   day.textContent = dayOfWeek[date].toUpperCase();
