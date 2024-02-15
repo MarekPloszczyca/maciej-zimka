@@ -27,7 +27,7 @@ const closestConcertHandler = () => {
     6: "Sobota",
   
   };
-  moreInfo[0].textContent = closest.date;
+  moreInfo[0].textContent = closest.date.toString().replaceAll("/",".");
   day.textContent = dayOfWeek[date].toUpperCase();
   moreInfo[2].textContent = closest.title;
   addressInfo[0].textContent = closest.city.toUpperCase();

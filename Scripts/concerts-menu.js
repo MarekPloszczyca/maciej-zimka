@@ -1,9 +1,25 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 
+
 const concertsContainer = document.querySelector(".inner-dates");
 const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
 const datesForwardButton = document.querySelector(".forward");
+
+const transletedMonth = {
+  0: "STY",
+  1: "LUT",
+  2: "MAR",
+  3: "KWI",
+  4: "MAJ",
+  5: "CZE",
+  6: "LIP",
+  7: "SIE",
+  8: "WRZ",
+  9: "PAŹ",
+  10: "LIS",
+  11: "GRU",
+};
 
 class Concert {
   constructor(date, title, band, city, place, street, time, artists) {
@@ -57,18 +73,27 @@ let allConcerts = [
     "Warszawa",
     "Dom Polonii"
   ),
-  new Concert("2023/01/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
-  "Duo",
-  "Warszawa",
-  "Dom Polonii"),
-  new Concert("2022/12/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
-  "Duo",
-  "Warszawa",
-  "Dom Polonii"),
-  new Concert("2030/11/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
-  "Duo",
-  "Warszawa",
-  "Dom Polonii"),
+  new Concert(
+    "2023/01/26",
+    "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+    "Duo",
+    "Warszawa",
+    "Dom Polonii"
+  ),
+  new Concert(
+    "2022/12/26",
+    "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+    "Duo",
+    "Warszawa",
+    "Dom Polonii"
+  ),
+  new Concert(
+    "2030/11/26",
+    "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+    "Duo",
+    "Warszawa",
+    "Dom Polonii"
+  ),
   new Concert(
     "2024/02/04",
     "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
@@ -99,27 +124,41 @@ let allConcerts = [
     "Quasi una Fantasia",
     "Catania (Włochy)"
   ),
-  new Concert("2024/05/21",  "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
-  "Duo Ardente",
-  "Warszawa",
-  "Dom Polonii"),
-  new Concert("2024/05/22",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
-  "Maciej Zimka",
-  "Katowice",
-  "Filharmonia"),
-  new Concert("2024/06/11",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
-  "Maciej Zimka",
-  "Kraków",
-  "Filharmonia"),
-  new Concert("2024/06/12",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
-  "Maciej Zimka",
-  "Katowice",
-  "Filharmonia"),
-  new Concert( "2024/05/05",
-  "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
-  "Quasi una Fantasia",
-  "Beausoleil (Francja)",
-  "Centre Culturel Prince Jacques"),
+  new Concert(
+    "2024/05/21",
+    "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+    "Duo Ardente",
+    "Warszawa",
+    "Dom Polonii"
+  ),
+  new Concert(
+    "2024/05/22",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Katowice",
+    "Filharmonia"
+  ),
+  new Concert(
+    "2024/06/11",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Kraków",
+    "Filharmonia"
+  ),
+  new Concert(
+    "2024/06/12",
+    "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+    "Maciej Zimka",
+    "Katowice",
+    "Filharmonia"
+  ),
+  new Concert(
+    "2024/05/05",
+    "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
+    "Quasi una Fantasia",
+    "Beausoleil (Francja)",
+    "Centre Culturel Prince Jacques"
+  ),
 ];
 
 let concerts = allConcerts
@@ -166,7 +205,7 @@ const hidingButtonsHandler = () => {
 
 const datesLoadHandler = () => {
   for (let i = 0; i < 3; i++) {
-    visibleConcerts[i].children[0].textContent = concerts[i].date;
+    visibleConcerts[i].children[0].textContent = `${new Date(concerts[i].date).getDate()} ${transletedMonth[new Date(concerts[i].date).getMonth()]}`;
     visibleConcerts[i].children[1].textContent = concerts[i].title;
     visibleConcerts[i].children[2].textContent = concerts[i].band;
     visibleConcerts[i].children[3].textContent = `- ${concerts[
@@ -318,7 +357,6 @@ concertsContainer.addEventListener("touchmove", datesOnTouchHandler, {
 });
 datesBackButton.addEventListener("click", datesOnClickMoveHandler);
 datesForwardButton.addEventListener("click", datesOnClickMoveHandler);
-
 
 export {
   allConcerts,
