@@ -132,6 +132,7 @@ let concerts = allConcerts
   .sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
+  console.log(concerts)
 
 const firstConcert = concerts[0];
 const lastConcert = concerts[concerts.length - 1];
