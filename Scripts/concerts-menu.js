@@ -167,7 +167,7 @@ const hidingButtonsHandler = () => {
 
 const datesLoadHandler = () => {
   for (let i = 0; i < 3; i++) {
-    visibleConcerts[i].children[0].textContent = concerts[i].date;
+   
     visibleConcerts[i].children[1].textContent = concerts[i].title;
     visibleConcerts[i].children[2].textContent = concerts[i].band;
     visibleConcerts[i].children[3].textContent = `- ${concerts[
