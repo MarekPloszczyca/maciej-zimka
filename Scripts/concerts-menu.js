@@ -20,7 +20,7 @@ class Concert {
 
 let allConcerts = [
   new Concert(
-    "2024.05.04",
+    "2024/05/04",
     "Concert for a poems",
     "Duo Ardente",
     "Kraków",
@@ -30,47 +30,47 @@ let allConcerts = [
     "Maciej Zimka | Mikołaj Makusiak | Wiesław Ochwat"
   ),
   new Concert(
-    "2022.01.04",
+    "2022/01/04",
     "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
     "Quasi una Fantasia",
     "Taranto (Włochy)",
     "Kościół San Francesca di Paola"
   ),
   new Concert(
-    "2022.01.05",
+    "2022/01/05",
     "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
     "Quasi una Fantasia",
     "Conversano (Włochy)",
     "Pinacotca Civica"
   ),
   new Concert(
-    "2022.03.05",
+    "2022/03/05",
     "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
     "Quasi una Fantasia",
     "Beausoleil (Francja)",
     "Centre Culturel Prince Jacques"
   ),
   new Concert(
-    "2022.03.13",
+    "2022/03/13",
     "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
     "Duo",
     "Warszawa",
     "Dom Polonii"
   ),
-  new Concert("2023.01.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  new Concert("2023/01/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
   "Duo",
   "Warszawa",
   "Dom Polonii"),
-  new Concert("2022.12.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  new Concert("2022/12/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
   "Duo",
   "Warszawa",
   "Dom Polonii"),
-  new Concert("2030.11.26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  new Concert("2030/11/26", "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
   "Duo",
   "Warszawa",
   "Dom Polonii"),
   new Concert(
-    "2024.02.04",
+    "2024/02/04",
     "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
     "Maciej Zimka",
     "Sopot",
@@ -80,42 +80,42 @@ let allConcerts = [
     "Maciej Zimka"
   ),
   new Concert(
-    "2023.11.17",
+    "2023/11/17",
     "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
     "Maciej Zimka",
     "Katowice",
     "NOSPR"
   ),
   new Concert(
-    "2023.11.11",
+    "2023/11/11",
     "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
     "Maciej Zimka",
     "Kraków",
     "Filharmonia"
   ),
   new Concert(
-    "2023.09.21",
+    "2023/09/21",
     "Recital Magdaleny Cornelius-Kulig: mezzosopran, Macieja Zimki: akordeon",
     "Quasi una Fantasia",
     "Catania (Włochy)"
   ),
-  new Concert("2024.05.21",  "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
+  new Concert("2024/05/21",  "Recital Marii Sławek - skrzypce, Maciej Zimka - akordeon",
   "Duo Ardente",
   "Warszawa",
   "Dom Polonii"),
-  new Concert("2024.05.22",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  new Concert("2024/05/22",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
   "Maciej Zimka",
   "Katowice",
   "Filharmonia"),
-  new Concert("2024.06.11",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  new Concert("2024/06/11",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
   "Maciej Zimka",
   "Kraków",
   "Filharmonia"),
-  new Concert("2024.06.12",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
+  new Concert("2024/06/12",  "Na drodze do nowej harmonii, koncert z udziałem Macieja Zimki",
   "Maciej Zimka",
   "Katowice",
   "Filharmonia"),
-  new Concert( "2024.05.05",
+  new Concert( "2024/05/05",
   "Recital Magdaleny Cornelius-Kulig: mezzosopran oraz Macieja Zimki",
   "Quasi una Fantasia",
   "Beausoleil (Francja)",
@@ -132,7 +132,6 @@ let concerts = allConcerts
   .sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
-  console.log(concerts)
 
 const firstConcert = concerts[0];
 const lastConcert = concerts[concerts.length - 1];
