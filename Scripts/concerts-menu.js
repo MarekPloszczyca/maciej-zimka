@@ -123,8 +123,16 @@ let allConcerts = [
 ];
 
 let concerts = allConcerts
- 
-  console.log(concerts, allConcerts)
+  .filter((single) => {
+    return (
+      new Date() < new Date(single.date) ||
+      new Date().toDateString() === new Date(single.date).toDateString()
+    );
+  })
+  .sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
+  console.log(concerts)
 
 const firstConcert = concerts[0];
 const lastConcert = concerts[concerts.length - 1];
