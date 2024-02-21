@@ -264,11 +264,13 @@ ion-icon {
 .single-concert {
   position: relative;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   padding: 2rem 1rem;
   width: 12rem;
+  height:20rem;
   text-align: center;
-  transition: background-color 0.3s ease-out;
+  transition: 0.3s ease-in-out;
   background: transparent;
   z-index: 6;
 }
@@ -295,12 +297,18 @@ ion-icon {
   font-weight: bold;
   font-size: 2.3rem !important;
 }
-.concert-name {
+.concert-name, .concert-band {
   display: block !important;
   border: none !important;
   font-family: "Open Sans", sans-serif;
   font-size: 1.125rem !important;
   letter-spacing: 0.06rem;
+}
+.concert-name{
+  height:5rem;
+}
+.concert-band{
+  height:2rem;
 }
 .concert-place {
   display: block !important;
@@ -1382,13 +1390,18 @@ a:visited {
     left: 0;
   }
   .single-concert:hover {
-    background-color: #191919;
-    box-shadow: inset 0.5rem 0.5rem 3rem 0.5rem #1d1d1d;
-  }
+    background-color: #0f0f0f;
+    box-shadow: inset 0.5rem 0.5rem 3rem 1.1rem #1d1d1d;
 
+  }
+.outer{
+  border-left: solid 0.1rem #d8d8d8;
+  border-right: solid 0.1rem #d8d8d8;
+  padding: 0 1rem;
+}
   .inner-dates :nth-child(2) {
-    border-left: solid 0.1rem #d8d8d8;
-    border-right: solid 0.1rem #d8d8d8;
+    margin:0 1rem;
+ 
   }
   .inner-dates :nth-child(3) {
     display: flex;
