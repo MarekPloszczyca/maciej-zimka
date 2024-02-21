@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -112,7 +112,8 @@ nav {
   justify-content: space-between;
   width: 7rem;
   padding-left: 0;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
   font-size: 1.5rem;
 }
 
@@ -873,7 +874,7 @@ h1 .second-word {
   padding: 1.5rem 0 0.5rem 0;
 }
 .cd-description p:first-of-type {
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   color: #d8d8d8;
   padding-bottom: 3rem;
@@ -895,11 +896,11 @@ ul p {
 }
 .tracklist {
   font-size: 1.125rem;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 .hint {
   text-align: center;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #ff3d00 !important;
   padding-bottom: 0.8rem !important;
 }
@@ -959,7 +960,7 @@ ul p {
 /*made for kompozycje.html*/
 
 .composition {
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   line-height: 1.5rem;
 }
@@ -994,7 +995,7 @@ ul p {
 .file {
   display: flex;
   justify-content: space-between;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.3rem;
   padding: 2rem 0.5rem;
 }
@@ -1017,7 +1018,7 @@ ul p {
   padding: 2rem 1rem;
 }
 .review p {
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.8rem;
   padding: 1rem 0;
 }
@@ -1646,7 +1647,8 @@ a:visited {
     transition: color 0.3s;
   }
   .menu li {
-    font-family: "Open-sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
     padding: 0 1rem;
   }
   .menu-active {
