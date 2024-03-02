@@ -65,8 +65,12 @@
         <li class="underscored"><a href="Sites/bio.html">BIO</a></li>
         <li class="underscored"><a href="Sites/koncerty.html">KONCERTY</a></li>
         <li class="underscored"><a href="Sites/recenzje.html">RECENZJE</a></li>
-        <li class="underscored"><a href="Sites/dyskografia.html">DYSKOGRAFIA</a></li>
-        <li class="underscored"><a href="Sites/kompozycja.html">KOMPOZYCJE</a></li>
+        <li class="underscored">
+          <a href="Sites/dyskografia.html">DYSKOGRAFIA</a>
+        </li>
+        <li class="underscored">
+          <a href="Sites/kompozycja.html">KOMPOZYCJE</a>
+        </li>
         <li class="underscored burger-dropdown">
           ZESPOŁY KAMERALNE <ion-icon name="chevron-down-outline"></ion-icon>
           <ul class="hidden">
@@ -81,7 +85,9 @@
             </li>
           </ul>
         </li>
-        <li class="underscored"><a href="Sites/do-pobrania.html">DO POBRANIA</a></li>
+        <li class="underscored">
+          <a href="Sites/do-pobrania.html">DO POBRANIA</a>
+        </li>
         <li class="underscored"><a href="Sites/kontakt.html">KONTAKT</a></li>
       </ul>
     </div>
@@ -102,14 +108,12 @@
       <div class="concerts centered">
         <h3>
           <span class="first-word white concerts-first">NADCHODZĄCE</span>
-          <span class="second-word white concerts-second"
-            >KONCERT<a href="Sites/koncerty.html"><span>Y</span></a></span
-          >
+          <span class="second-word white concerts-second">KONCERTY</span>
         </h3>
+       
         <div class="tablet-hidden title-arrow">
-          <a href="Sites/koncerty.html"
-            ><ion-icon name="arrow-down-outline" class="colored"></ion-icon
-          ></a>
+          <a href="Sites/koncerty.html"><div class="arrow-link"></div></a>
+          <ion-icon name="arrow-down-outline" class="colored"></ion-icon>
           <a href="Sites/koncerty.html"
             ><p class="hidden-description desktop-only">
               <span class="first-word overlap white">ZOBACZ</span>
@@ -118,29 +122,37 @@
           >
         </div>
         <div class="centered">
-          <ion-icon name="chevron-back-outline" class="back date-back white"></ion-icon>
+          <ion-icon
+            name="chevron-back-outline"
+            class="back date-back white"
+          ></ion-icon>
           <div class="dates">
-          <content class="inner-dates centered">
-            <div class="single-concert centered">
-              <p class="first-word white date"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-place white"></p>
-            </div>
-            <div class="single-concert centered">
-              <p class="first-word white date"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-place white"></p>
-            </div>
-            <div class="single-concert centered">
-              <p class="first-word white date"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-name colored"></p>
-              <p class="concert-place white"></p>
-            </div>
-          </content>
-        </div>
+            <content class="inner-dates centered">
+              <a href="Sites/koncerty.html"
+                ><div class="single-concert centered">
+                  <p class="first-word white date"></p>
+                  <p class="concert-name colored"></p>
+                  <p class="concert-band colored"></p>
+                  <p class="concert-place white"></p></div
+              ></a>
+              <div class="outer">
+                <a href="Sites/koncerty.html"
+                  ><div class="single-concert centered">
+                    <p class="first-word white date"></p>
+                    <p class="concert-name colored"></p>
+                    <p class="concert-band colored"></p>
+                    <p class="concert-place white"></p></div
+                ></a>
+              </div>
+              <a href="Sites/koncerty.html"
+                ><div class="single-concert centered">
+                  <p class="first-word white date"></p>
+                  <p class="concert-name colored"></p>
+                  <p class="concert-band colored"></p>
+                  <p class="concert-place white"></p></div
+              ></a>
+            </content>
+          </div>
           <ion-icon
             name="chevron-forward-outline"
             class="forward date-forward white"

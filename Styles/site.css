@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -217,10 +217,11 @@ ion-icon {
   flex-direction: column;
   padding: 9rem 2rem 3rem 2rem;
   text-align: center;
+  position: relative;
 }
 .concerts h3 {
   max-width: 20rem;
-  z-index: 10;
+
   background: transparent;
 }
 .concerts-first {
@@ -228,10 +229,10 @@ ion-icon {
 }
 .concerts-second {
   margin-left: 3rem;
-}
-.concerts span {
+  pointer-events: none;
   background: transparent;
 }
+
 .dates {
   padding: 5rem 0;
   overflow: hidden;
@@ -264,11 +265,13 @@ ion-icon {
 .single-concert {
   position: relative;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   padding: 2rem 1rem;
   width: 12rem;
+  height: 20rem;
   text-align: center;
-  transition: background-color 0.3s ease-out;
+  transition: 0.3s ease-in-out;
   background: transparent;
   z-index: 6;
 }
@@ -295,12 +298,19 @@ ion-icon {
   font-weight: bold;
   font-size: 2.3rem !important;
 }
-.concert-name {
+.concert-name,
+.concert-band {
   display: block !important;
   border: none !important;
   font-family: "Open Sans", sans-serif;
   font-size: 1.125rem !important;
   letter-spacing: 0.06rem;
+}
+.concert-name {
+  height: 5rem;
+}
+.concert-band {
+  height: 2rem;
 }
 .concert-place {
   display: block !important;
@@ -369,6 +379,17 @@ a,
   bottom: 2.1rem;
   left: 18.2rem;
   z-index: 1;
+}
+.arrow-link {
+  position: absolute;
+  right:-0.3rem;
+  top:-0.3rem;
+  width: 5.6rem;
+  height: 5.8rem;
+  background: transparent;
+}
+.arrow-link:hover {
+  cursor: url(../Images/ellipse-outline-hover.svg), auto;
 }
 
 .arrow ion-icon,
@@ -1067,9 +1088,9 @@ ul p {
   background-size: cover;
   height: 40rem;
   background-position: 20% 50%;
-  background-attachment: fixed;
   filter: grayscale(100%);
 }
+
 .band-image {
   background-image: url(../Images/ZImkaOchwat.jpg);
 }
@@ -1382,13 +1403,16 @@ a:visited {
     left: 0;
   }
   .single-concert:hover {
-    background-color: #191919;
-    box-shadow: inset 0.5rem 0.5rem 3rem 0.5rem #1d1d1d;
+    background-color: #0f0f0f;
+    box-shadow: inset 0.5rem 0.5rem 3rem 1.1rem #1d1d1d;
   }
-
-  .inner-dates :nth-child(2) {
+  .outer {
     border-left: solid 0.1rem #d8d8d8;
     border-right: solid 0.1rem #d8d8d8;
+    padding: 0 1rem;
+  }
+  .inner-dates :nth-child(2) {
+    margin: 0 1rem;
   }
   .inner-dates :nth-child(3) {
     display: flex;
@@ -1451,7 +1475,7 @@ a:visited {
   }
   .desktop-schedule {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: stretch;
     padding: 5rem 0;
   }
@@ -1464,7 +1488,7 @@ a:visited {
     width: 35%;
     min-height: 50%;
     position: relative;
-    right: 8rem;
+    right: 15rem;
   }
   .placeholder .circle {
     position: relative;
@@ -1549,15 +1573,17 @@ a:visited {
   }
   .tracklist .underscored:hover .track-number::before {
     content: "POSŁUCHAJ NA SPOTIFY";
+    font-family: Open Sans, sans-serif;
     position: relative;
-    font-weight: bold;
+    font-style: normal;
+    font-weight: 600;
     color: #ffffff;
     right: 2rem;
     bottom: 0.3rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: solid 0.1rem #ff3d00;
     border-radius: 2rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
   }
   .tracklist .underscored:hover .track-number {
     color: #ff3d00 !important;
