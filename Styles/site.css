@@ -698,8 +698,9 @@ footer p {
   letter-spacing: 0.078rem;
 }
 .button-container {
-  position: relative;
-  width: 100%;
+  position: sticky;
+ bottom:0;
+  right:0;
   display: flex;
   justify-content: end;
   z-index: 200;
@@ -707,6 +708,7 @@ footer p {
 }
 .up-button {
   border: none;
+  background: transparent;
   padding: 0;
   font-size: 3rem;
   --ionicon-stroke-width: 0.6rem;
@@ -1263,10 +1265,7 @@ a:visited {
   .other-bands span.second-word {
     font-size: 1.8rem;
   }
-  .up-button {
-    position: relative;
-    top: 4rem;
-  }
+
 }
 
 @media (min-width: 768px) {
