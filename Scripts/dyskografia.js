@@ -7,6 +7,8 @@ const publisher = document.querySelector(".publisher");
 const buyButton = document.querySelector(".info button");
 const image = document.querySelector(".details img");
 
+let firstLoad = true;
+
 class Record {
   constructor(
     imageURL,
@@ -90,13 +92,31 @@ const nextImageStyle = recordsArray[3].children[0].style;
 const previousImageStyle = recordsArray[1].children[0].style;
 
 const recordsNameHandler = (index) => {
-  image.src = records[index].imageURL;
-  title.children[0].textContent = records[index].firstTitle;
-  title.children[1].textContent = records[index].secondTitle;
-  publisher.textContent = records[index].publisher;
-  !records[index].toBuy
-    ? buyButton.classList.add("hidden")
-    : buyButton.classList.remove("hidden");
+  if (!window.location.search.substring(1) || !firstLoad) {
+    image.src = records[index].imageURL;
+    title.children[0].textContent = records[index].firstTitle;
+    title.children[1].textContent = records[index].secondTitle;
+    publisher.textContent = records[index].publisher;
+    return !records[index].toBuy
+      ? buyButton.classList.add("hidden")
+      : buyButton.classList.remove("hidden");
+  } else {
+    for (let record of records) {
+      if (
+        record.alternative.toLowerCase() ===
+        window.location.search.substring(1).replace(/record=/g, "")
+      ) {
+        image.src = record.imageURL;
+        title.children[0].textContent = record.firstTitle;
+        title.children[1].textContent = record.secondTitle;
+        publisher.textContent = record.publisher;
+        !record.toBuy
+          ? buyButton.classList.add("hidden")
+          : buyButton.classList.remove("hidden");
+        return (firstLoad = false);
+      }
+    }
+  }
 };
 
 const recordsLoadHandler = () => {
@@ -128,9 +148,8 @@ const recordsMoveHandler = (evt) => {
       break;
   }
   recordsLoadHandler();
-  pageScroll()
+  pageScroll();
 };
-
 
 const cursorChangeHandler = (event) => {
   event.pageX > window.innerWidth / 2
@@ -248,4 +267,3 @@ innerCarousel.addEventListener("touchend", recordsSlideHandler, {
   passive: true,
 });
 recordsLoadHandler();
-

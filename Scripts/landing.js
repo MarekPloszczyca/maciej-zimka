@@ -12,6 +12,7 @@ emailjs.init("5GZD6bKI9widLn-mj");
 
 const recordsArray = Array.from(document.querySelectorAll(".record"));
 const innerCarousel = document.querySelector(".inner-carousel");
+const recordLink = innerCarousel.querySelector(".record-link");
 const title = document.querySelector("h5");
 const description = document.querySelector(".description");
 const text = description.querySelectorAll("p");
@@ -91,6 +92,11 @@ const recordsLoadHandler = () => {
     img.alt = records[i].alternative;
   }
   recordsNameHandler(2);
+  recordLink.href = `./Sites/dyskografia.html?record=${title.textContent
+    .trim()
+    .toLowerCase()
+    .split(" ")
+    .join("")}`;
 };
 
 const recordsMoveHandler = (evt) => {
@@ -215,8 +221,6 @@ const recordsMoveAnimation = (event) => {
   }
 };
 
-
-
 recordsArray.forEach((record) => {
   record.addEventListener("click", recordsMoveHandler);
 });
@@ -238,4 +242,3 @@ mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 sendMailButton.addEventListener("click", sendMail);
-
