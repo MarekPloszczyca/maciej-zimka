@@ -22,7 +22,6 @@ const upButtonHandler = () => {
   scrollIndex < 800
     ? upButton.classList.add("hidden")
     : upButton.classList.remove("hidden");
-  console.log(scrollIndex);
 };
 
 burgerDropdown.addEventListener("click", dropdownHandler);
