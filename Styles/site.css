@@ -168,11 +168,18 @@ nav {
   position: relative;
   flex-direction: column;
   gap: 1.5rem;
-  top: 40rem;
+  top: 33rem;
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
   background-color: transparent;
+}
+.prof-icon-wrapper img{
+  width:15rem;
+  background: transparent;
+}
+.prof-icon-wrapper img.desktop-only{
+  width: 25rem;
 }
 .prof-icon-wrapper ion-icon:hover,
 .prof-icon-wrapper i:hover {
