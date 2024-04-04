@@ -1029,19 +1029,31 @@ ul p {
 .file {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: "Open Sans", sans-serif;
   font-size: 1.3rem;
   padding: 2rem 0.5rem;
 }
+.file p{
+  background: transparent;
+}
 .file:first-of-type {
   border-top: solid 0.1rem #ffffff;
 }
+.file ion-icon{
+  font-size: 1.5rem;
+  padding:0.5rem;
+  border: solid 0.1rem transparent;
+  border-radius: 50%;
+}
 .file:hover {
   cursor: url(../Images/ellipse-outline-hover.svg), auto;
+  background-color: #0f0f0f;
+  box-shadow: inset 0.5rem 0.5rem 3rem 1.1rem #1d1d1d;
+  color:#ff3d00
 }
 .file:hover.file ion-icon {
-  border: solid 0.1rem #ffffff;
-  border-radius: 50%;
+border-color: #ff3d00;
 }
 .no-up-arrow {
   padding-bottom: 2rem;
