@@ -1,6 +1,5 @@
 import { menuButton, toggleMenuHandler } from "./navigation.js";
 
-
 const concertsContainer = document.querySelector(".inner-dates");
 const visibleConcerts = document.querySelectorAll(".single-concert");
 const datesBackButton = document.querySelector(".back");
@@ -172,31 +171,26 @@ let concerts = allConcerts
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 
+concerts.forEach((concert) => {
+  concert.id = concerts.indexOf(concert).toString();
+});
+
 const firstConcert = concerts[0];
 const lastConcert = concerts[concerts.length - 1];
 
+
 const hidingButtonsHandler = () => {
   const width = window.innerWidth;
-  visibleConcerts[0].children[0].textContent === firstConcert.date
+  visibleConcerts[0].id == firstConcert.id
     ? datesBackButton.classList.add("non-clickable")
     : datesBackButton.classList.remove("non-clickable");
-  if (
-    width < 768 &&
-    visibleConcerts[0].children[0].textContent === lastConcert.date
-  ) {
+  if (width < 768 && visibleConcerts[0].id == lastConcert.id) {
     return datesForwardButton.classList.add("non-clickable");
   }
-  if (
-    width >= 768 &&
-    width < 1200 &&
-    visibleConcerts[1].children[0].textContent === lastConcert.date
-  ) {
+  if (width >= 768 && width < 1200 && visibleConcerts[1].id == lastConcert.id) {
     return datesForwardButton.classList.add("non-clickable");
   }
-  if (
-    width >= 1200 &&
-    visibleConcerts[2].children[0].textContent === lastConcert.date
-  ) {
+  if (width >= 1200 && visibleConcerts[2].id == lastConcert.id) {
     return datesForwardButton.classList.add("non-clickable");
   } else {
     return datesForwardButton.classList.remove("non-clickable");
@@ -205,7 +199,10 @@ const hidingButtonsHandler = () => {
 
 const datesLoadHandler = () => {
   for (let i = 0; i < 3; i++) {
-    visibleConcerts[i].children[0].textContent = `${new Date(concerts[i].date).getDate()} ${transletedMonth[new Date(concerts[i].date).getMonth()]}`;
+    visibleConcerts[i].id = concerts[i].id
+    visibleConcerts[i].children[0].textContent = `${new Date(
+      concerts[i].date
+    ).getDate()} ${transletedMonth[new Date(concerts[i].date).getMonth()]}`;
     visibleConcerts[i].children[1].textContent = concerts[i].title;
     visibleConcerts[i].children[2].textContent = concerts[i].band;
     visibleConcerts[i].children[3].textContent = `- ${concerts[
